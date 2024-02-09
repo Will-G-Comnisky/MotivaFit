@@ -1,9 +1,11 @@
 import styles from './Banner.module.css'
 
+// var numMetaConcluida = 7;
+
 function Banner(props){
+
     return(
-    
-    <div id={styles.idBannerBackground}>
+    <div id={styles.idBannerBackground} >
         <div id={styles.idResumoBanner}>
             {/* ----- Foto Usuario -----*/}
             <div>
@@ -12,20 +14,20 @@ function Banner(props){
             <div id={styles.idBannerUserInfo}>
 
             {/* ----- Mensagem Inicial ----- */}
-            <p>{props.msgBom}, <span id={styles.idBannerUserName}>{props.userName}</span>!</p>
+            <p>{props.msgBom}, <span id={styles.idBannerUserName}>{props.userName}!</span></p>
 
             {/* ----- Barra de progresso 0-7 ----- */}
-            <div>
+            {/* <div>
                 <p id={styles.idProgressoTxt}>Treinos desta Semana:</p>
                 <div id={styles.idBannerBarraDeProgresso}>
-                <div id={styles.idBannerProgresso}>
-                    {props.numMetaConcluida}/7
+                <div id={styles.idBannerProgresso} >
+                    {numMetaConcluida}/7
                 </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* ----- Mensagem Ranking ----- */}
-            <p id={styles.idBannerRankingText}>Sua Divisão: {props.userRanking}</p>
+            {/* <p id={styles.idBannerRankingText}>Sua Divisão: {props.userRanking}</p> */}
 
             {/* Botao Editar Perfil */}
             <div id={styles.idBannerBotaoBackground}>

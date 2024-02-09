@@ -2,6 +2,7 @@ import styles from "./NavBar.module.css"
 
 function NavBar(props){
     return(
+        
         <div id={styles.idNav}>
 
             <div id={styles.idNavImgBackground}>

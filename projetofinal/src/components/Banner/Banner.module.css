@@ -39,6 +39,8 @@
   
   #idBannerUserName{
     font-weight: bold;
+    display: block;
+    height: 2rem;
   }
   
   #idProgressoTxt{
@@ -54,16 +56,17 @@
   }
   
   #idBannerProgresso{
-    background-color: rgb(2, 189, 2);
+    background-color: rgb(0, 213, 241);
     color: white;
   
-    box-shadow: 0.5rem 0rem 0.8rem rgba(2, 189, 2, 0.267);
+    box-shadow: 0.5rem 0rem 0.8rem rgba(0, 210, 218, 0.267);
   
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2rem;
   
-    height: 2rem;
     width: 15%;
+
+    height: 2rem;
     border-radius: 1rem;
     display: grid;
     place-items: center;
@@ -79,8 +82,9 @@
     display: block;
     background-color: white;
     border: none;
+    margin-top: 4rem;
     color: rgb(52, 124, 219);
-    text-align: right;
+    
   }
   
   #idBannerBotao:hover{

@@ -6,6 +6,10 @@ import BotaoLinks from '../BotaoLink/BotaoLink';
 import NavBar from '../NavBar/NavBar';
 import Banner from '../Banner/Banner';
 import CardAluno from '../CardAluno/CardAluno';
+import BarraDePesquisa from '../BarraDePesquisa/BarraDePesquisa'
+
+// ----- Data -----
+import {alunoList} from "../../data/alunoList";
 
 // ----- Imagens Temporarias ----- 
 // -- Logo --
@@ -25,22 +29,9 @@ import filtro from "../../assets/filtro.png"
 // ----- Variaveis Temporarias -----
 // --- User Info Resumo ---
 var userName = "Bruno Enghi"
-var trainName = "Supino Invertido Colateral 4"
 var msgBom
 var userRanking = "Ouro"
 var numMetaConcluida = 1;
-// --- Aluno List
-
-const alunoList = [
-{
-    alunoName: "João Pedro",
-    alunoTrain: "Dorsal Frontal 2"
-},
-{
-    alunoName: "Pedro",
-    alunoTrain: "Dorsal Costal 3"
-}
-]
 
 
 // Função msg de Bom Dia / Boa Tarde / Boa Noite
@@ -58,20 +49,30 @@ function msgHoraDoDia(){
         msgBom = periodo;
       }
     }
-  }
+}
 
-function PersonalTrainerMainPage(props){
-    return(
-        <div id={styles.idMain} onLoad={msgHoraDoDia()}> 
-
-      {/* ----- Nav Bar ----- */}
-      <div>
-        <NavBar logo={logo}
+const Alunos = ({alunoList}) => (
+  <>
+    {alunoList.map(aluno => (
+      <div key={aluno.id}>
+        <CardAluno  alunoName={aluno.alunoName}
+                    alunoTrain={aluno.alunoTrain}
+                    alunoImg={userImg}
         />
       </div>
+    ))}
+  </>
+); 
 
-      {/* ----- Banner ----- */}
+function PersonalTrainerMainPage(props){
+  return(
+    <div id={styles.idMain} onLoad={msgHoraDoDia()}> 
+
+      {/* ----- Nav Bar ----- */}
+        <NavBar logo={logo}
+        />
       
+      {/* ----- Banner ----- */}
       <Banner userImg = {userImg}
               msgBom = {msgBom}
               userName = {userName}
@@ -96,7 +97,7 @@ function PersonalTrainerMainPage(props){
         {/* Botao Agendamentos */}
         <BotaoLinks nome ="Agendamentos"
                     icon ={agendamentos}
-                    link = "#"
+                    link = "https://workspace.google.com/intl/pt-BR/products/calendar/"
         />
 
         {/* Botao Financeiro */}
@@ -114,49 +115,27 @@ function PersonalTrainerMainPage(props){
         />
       </div>
 
-        <div id={styles.idListaAluno}>
+      <div id={styles.idListaAluno}>
 
-            <div id={styles.idAlunosNavBar}>
+        <div id={styles.idAlunosNavBar}>
 
-                {/* ----- Barra de Pesquisa ----- */}
-                <div id={styles.idAlunosBarraDePesquisa}>
-                    {/* --- Botão com a lupa --- */}
-                    <div id={styles.idAlunosPesquisar}>
-                        <button id={styles.idAlunosPesquisarButton}>
-                            <img id={styles.idAlunosPesquisarImg} src={lupa} alt="" />
-                        </button>
-                    </div>
+          {/* ----- Barra de Pesquisa ----- */}
+          <BarraDePesquisa lupaImg={lupa}/>
 
-                    {/* --- Input do Texto --- */}
-                    <div id={styles.idAlunoPesquisarText}>
-                        <input id={styles.idAlunoPesquisarInput} type="text" placeholder="Pesquisar..."/>
-                    </div>
-                </div>  
-
-                {/* ----- Filtro ou Ordenar ----- */}
-                <div id={styles.idAlunosFiltro}>
-                    <div id={styles.idButtonBackground}>
-                        <img id={styles.idAlunoFiltroImg}src={filtro} alt="" />
-                    </div>
-                </div>
+            {/* ----- Filtro ou Ordenar ----- */}
+          <div id={styles.idAlunosFiltro}>
+            <div id={styles.idButtonBackground}>
+              <img id={styles.idAlunoFiltroImg}src={filtro} alt="" />
             </div>
-
-            <CardAluno  alunoImg = {userImg}
-                        alunoName = {alunoList[0].alunoName}
-                        alunoTrain = {alunoList[0].alunoTrain}
-            
-            />
-            <CardAluno  alunoImg = {userImg}
-                        alunoName = {alunoList[1].alunoName}
-                        alunoTrain = {alunoList[1].alunoTrain}
-            
-            />
+          </div>
         </div>
 
+        <Alunos alunoList={alunoList}/>
 
 
+      </div>
     </div>
-    )
+  )
 }
 
 export default PersonalTrainerMainPage

@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+#idAlunoCard {
+    background-color: white;
+    height: 3rem;
+    margin: auto;
+    margin-top: 1rem;
+    width: 95%;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.1rem 1rem rgba(0, 0, 0, 0.199);
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: grid;
+    grid-template-columns: 2fr 8fr 20fr 1fr;
+}
+
+#idAlunoCard:hover{
+    cursor: pointer;
+}
+
+
+#idAlunoImg{
+    width: 2.8rem;
+    border-radius: 2rem;
+    padding-top: 0.25rem;
+    padding-left: 1rem;
+    margin: auto;
+}
+
+#idAlunoNome{
+    margin: auto;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#idAlunoTreino{
+    display: grid;
+    place-items: center left;
+    
+    text-align: left;
+    font-size: 1.1rem
+}
+
+#idInfoIcon{
+    width: 2.1rem;
+    padding-top: 0.45rem;
+    margin-right: 1rem;
+}

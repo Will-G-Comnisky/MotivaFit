@@ -1,6 +1,6 @@
 import './App.css';
 
-import PersonalTrainerMainPage from './conponents/PersonalTrainerMainPage/PersonalTrainerMainPage';
+import PersonalTrainerMainPage from './components/PersonalTrainerMainPage/PersonalTrainerMainPage';
 
 function App() {
   return (

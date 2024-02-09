@@ -24,10 +24,7 @@
     width: 60rem;
 }
 
-#idRanking{
-    margin-left: 0.8rem;
-    margin-top: 0.7rem;
-}
+
 
 #idCadastrarAluno{
     margin-top: 3rem;
@@ -37,15 +34,17 @@
 
 #idListaAluno{
     background-color: rgba(158, 158, 158, 0.432);
-    height: 20rem;
     width: 90%;
     max-width: 85rem;
 
     margin: auto;
     margin-top: 2rem;
     padding-top: 0.5rem;
+    padding-bottom: 2rem;
+    margin-bottom: 8rem;
 
     border-radius: 1rem;
+    box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.192);
 }
 
 #idAlunosNavBar{
@@ -53,67 +52,7 @@
     /* ---- Melhor Layout para celular se ---- */
     /* ---- A partir de 700px mudar par a 12fr 2fr ---- */
     grid-template-columns: 12fr 1fr;
-    place-items: center;
-}
-
-#idAlunosBarraDePesquisa{
-    background-color: white;
-    height: 2rem;
-    width: 95%;
-    border-radius: 2rem;
-    
-    box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.253);
-
-    display: grid;
-    grid-template-columns: 1fr 11fr;
-    place-items: center left;
-    
-}
-
-#idAlunosPesquisar{
-    margin: auto;
-}
-
-#idAlunosPesquisarButton{
-    background-color: white;
-    border: none;
-    border-radius: 2rem;
-    padding-top: 0.3rem;
-}
-
-#idAlunosPesquisarButton:hover{
-    cursor: pointer;
-}
-
-#idAlunosPesquisarImg{
-    width: 1.4rem;
-    margin: auto;
-}
-
-#idAlunoPesquisarText{
-    width: 100%;
-}
-
-#idAlunoPesquisarInput {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.3rem;
-    border: none;
-
-    width: 96%;
-    border-radius: 2rem;
-    padding-left: 1rem;
-
-
-    color: gray;
-    background-color: rgba(211, 211, 211, 0.281);
-}
-
-#idAlunoPesquisarInput::placeholder{
-    color: rgba(128, 128, 128, 0.534);
-}
-
-#idAlunoPesquisarInput:focus {
-    outline: none;
+    place-items:  center;
 }
 
 #idAlunosFiltro{

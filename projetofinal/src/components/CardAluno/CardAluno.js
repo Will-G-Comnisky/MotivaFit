@@ -5,7 +5,7 @@ import infoImg from '../../assets/infoImg.png'
 function CardAluno(props){
     return(
         <div>
-            <div id={styles.idAlunoCard}>
+            <div id={styles.idAlunoCard} >
 
                 {/* ----- Aluno Img ----- */}
                 <div id={styles.idAlunoImgBackground}>
