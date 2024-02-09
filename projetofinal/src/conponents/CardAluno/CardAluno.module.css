@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+#idAlunoCard {
+    background-color: white;
+    height: 3rem;
+    margin: auto;
+    margin-top: 1rem;
+    width: 95%;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.1rem 1rem rgba(0, 0, 0, 0.199);
+
+    display: grid;
+    grid-template-columns: 4fr 8fr 20fr 1fr;
+    place-items: center left;
+}
+
+#idAlunoImg{
+    width: 2.8rem;
+    border-radius: 2rem;
+    padding-top: 0.25rem;
+}
+
+#idInfoIcon{
+    width: 2.1rem;
+    padding-top: 0.3rem;
+    margin-right: 1rem;
+}

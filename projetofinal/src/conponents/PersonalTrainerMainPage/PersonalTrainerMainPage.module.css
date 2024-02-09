@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+/* ----- Pagina Principal ----- */
+
+#idMain {
+    background-color: white;
+    height: 100%;
+}
+
+
+
+/* ----- Botôes ----- */
+
+#idBotoesPaginaPrincipal{
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 60rem;
+}
+
+#idCadastrarAluno{
+    margin-top: 3rem;
+    margin: auto;
+    width: 60rem;
+}
+
+#idRanking{
+    margin-left: 0.8rem;
+    margin-top: 0.7rem;
+}
+
+#idCadastrarAluno{
+    margin-top: 3rem;
+}
+
+/* ----- Lista ALunos ----- */
+
+#idListaAluno{
+    background-color: rgba(158, 158, 158, 0.432);
+    height: 20rem;
+    width: 90%;
+    max-width: 85rem;
+
+    margin: auto;
+    margin-top: 2rem;
+    padding-top: 0.5rem;
+
+    border-radius: 1rem;
+}
+
+#idAlunosNavBar{
+    display: grid;
+    /* ---- Melhor Layout para celular se ---- */
+    /* ---- A partir de 700px mudar par a 12fr 2fr ---- */
+    grid-template-columns: 12fr 1fr;
+    place-items: center;
+}
+
+#idAlunosBarraDePesquisa{
+    background-color: white;
+    height: 2rem;
+    width: 95%;
+    border-radius: 2rem;
+    
+    box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.253);
+
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+    place-items: center left;
+    
+}
+
+#idAlunosPesquisar{
+    margin: auto;
+}
+
+#idAlunosPesquisarButton{
+    background-color: white;
+    border: none;
+    border-radius: 2rem;
+    padding-top: 0.3rem;
+}
+
+#idAlunosPesquisarButton:hover{
+    cursor: pointer;
+}
+
+#idAlunosPesquisarImg{
+    width: 1.4rem;
+    margin: auto;
+}
+
+#idAlunoPesquisarText{
+    width: 100%;
+}
+
+#idAlunoPesquisarInput {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+    border: none;
+
+    width: 96%;
+    border-radius: 2rem;
+    padding-left: 1rem;
+
+
+    color: gray;
+    background-color: rgba(211, 211, 211, 0.281);
+}
+
+#idAlunoPesquisarInput::placeholder{
+    color: rgba(128, 128, 128, 0.534);
+}
+
+#idAlunoPesquisarInput:focus {
+    outline: none;
+}
+
+#idAlunosFiltro{
+    display: grid;
+    place-items: center;
+}
+
+#idButtonBackground{
+    background-color: white;
+    border: none;
+    border-radius: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.199);
+}
+
+#idButtonBackground:hover{
+    cursor: pointer;
+}
+
+#idAlunoFiltroImg{
+    width: 2.5rem;
+    margin-top: 0.15rem;
+}
