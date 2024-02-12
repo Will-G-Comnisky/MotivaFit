@@ -1,3 +1,20 @@
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
+
+async function getUsers() {
+    const allUsers = await prisma.usuario.findMany();
+    console.log(allUsers)
+}
+
+getUsers()
+    .catch(err => {
+        throw err
+    })
+    .finally(async () => { 
+        await prisma.$disconnect()
+    });
+
+
 const users = [
     {id: 1, name: "Will_Gispiela", password: '1642'},
     {id: 2, name: "Will_Comnisky", password: '1212'},
@@ -5,9 +22,7 @@ const users = [
 ] 
 
 
-const getUsers = () => { 
-    return users
-}
+//const getUsers = () => {     return users }
 
 const searchUserId = (id: number) => {
     return users.find(user => user.id == id)
