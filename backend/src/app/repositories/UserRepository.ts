@@ -1,4 +1,5 @@
 import { usuario } from '@prisma/client';
+import { TEMPORARY_REDIRECT } from 'http-status-codes';
 import { prisma } from '../database/prisma';
 
 
@@ -6,6 +7,17 @@ class UserRepository {
   create = async (data: usuario) => {
     const user = await prisma.usuario.create({
       data,
+      select: {
+        id_usuario: true, 
+        user_id: true,
+        tipo_user: true,
+        senha: false,
+        cpf: true,         
+        email: true,       
+        nome: true,        
+        id_endereco: true, 
+        userimg: true
+      }
     });
     return user;
   }
