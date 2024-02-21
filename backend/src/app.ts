@@ -1,9 +1,11 @@
 import express from 'express';
 import cors from "cors";
-import routes from "./routes"
+import routes from "./routes/routes"
 import 'dotenv/config';
 import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
 
+dotenv.config()
 
 const app = express();
 
@@ -13,6 +15,7 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-app.use(routes)
+routes(app);
+//app.use(routes)
 
 export default app;

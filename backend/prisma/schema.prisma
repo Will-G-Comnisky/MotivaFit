@@ -8,50 +8,52 @@ datasource db {
 }
 
 model aluno {
-  id_aluno  Int         @id
-  data_nasc DateTime    @db.Date
-  altura    String      @db.VarChar(8)
-  peso      String      @db.VarChar(8)
-  xp        Int
-  nivel     Int
-  id_plano  Int
-  plano     plano       @relation(fields: [id_plano], references: [id_plano], onDelete: NoAction, onUpdate: NoAction)
-  avaliacao avaliacao[]
-  usuario   usuario[]
+  id_aluno   Int         @id @default(autoincrement())
+  data_nasc  DateTime    @db.Date
+  altura     Decimal     @db.Decimal(3, 2)
+  xp         Int
+  nivel      Int
+  id_usuario Int
+  id_admin   Int
+  admin      admin       @relation(fields: [id_admin], references: [id_admin], onDelete: NoAction, onUpdate: NoAction)
+  usuario    usuario     @relation(fields: [id_usuario], references: [id_usuario], onDelete: NoAction, onUpdate: NoAction)
+  avaliacao  avaliacao[]
+  plano      plano[]
 }
 
 model avaliacao {
-  id_avaliacao           Int              @id
-  descri__o              String?          @map("descriÇÃo") @db.VarChar(500)
-  id_personal            Int
+  id_avaliacao           Int      @id @default(autoincrement())
+  descricao              String?  @db.VarChar(500)
+  id_admin               Int
   id_aluno               Int
-  medida_braco_dir_rlx   String           @db.VarChar(6)
-  medida_braco_esq_rlx   String           @db.VarChar(6)
-  medida_antebraco_esq   String           @db.VarChar(6)
-  medida_antebraco_dir   String           @db.VarChar(6)
-  medida_escapular       String           @db.VarChar(6)
-  medida_torax           String           @db.VarChar(6)
-  medida_cintura         String           @db.VarChar(6)
-  medida_abdomen         String           @db.VarChar(6)
-  medida_quadril         String           @db.VarChar(6)
-  medida_coxa_esq        String           @db.VarChar(6)
-  medida_coxa_dir        String           @db.VarChar(6)
-  medida_panturrilha_esq String           @db.VarChar(6)
-  medida_panturrilha_dir String           @db.VarChar(6)
-  dobras_triceps         String           @db.VarChar(6)
-  dobras_sub_escapular   String           @db.VarChar(6)
-  dobras_peitoral        String           @db.VarChar(6)
-  dobras_med_axilar      String           @db.VarChar(6)
-  dobras_supra_iliaca    String           @db.VarChar(6)
-  dobras_abdomen         String           @db.VarChar(6)
-  dobras_coxa            String           @db.VarChar(6)
-  data_avaliacao         DateTime         @db.Date
-  aluno                  aluno            @relation(fields: [id_aluno], references: [id_aluno], onDelete: NoAction, onUpdate: NoAction)
-  personal_trainer       personal_trainer @relation(fields: [id_personal], references: [id_personal], onDelete: NoAction, onUpdate: NoAction)
+  peso                   String   @db.VarChar(8)
+  medida_braco_dir_rlx   String   @db.VarChar(6)
+  medida_braco_esq_rlx   String   @db.VarChar(6)
+  medida_antebraco_esq   String   @db.VarChar(6)
+  medida_antebraco_dir   String   @db.VarChar(6)
+  medida_escapular       String   @db.VarChar(6)
+  medida_torax           String   @db.VarChar(6)
+  medida_cintura         String   @db.VarChar(6)
+  medida_abdomen         String   @db.VarChar(6)
+  medida_quadril         String   @db.VarChar(6)
+  medida_coxa_esq        String   @db.VarChar(6)
+  medida_coxa_dir        String   @db.VarChar(6)
+  medida_panturrilha_esq String   @db.VarChar(6)
+  medida_panturrilha_dir String   @db.VarChar(6)
+  dobras_triceps         String   @db.VarChar(6)
+  dobras_sub_escapular   String   @db.VarChar(6)
+  dobras_peitoral        String   @db.VarChar(6)
+  dobras_med_axilar      String   @db.VarChar(6)
+  dobras_supra_iliaca    String   @db.VarChar(6)
+  dobras_abdomen         String   @db.VarChar(6)
+  dobras_coxa            String   @db.VarChar(6)
+  data_avaliacao         DateTime @db.Date
+  admin                  admin    @relation(fields: [id_admin], references: [id_admin], onDelete: NoAction, onUpdate: NoAction)
+  aluno                  aluno    @relation(fields: [id_aluno], references: [id_aluno], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model bairro {
-  id_bairro Int        @id
+  id_bairro Int        @id @default(autoincrement())
   id_cidade Int
   nome      String     @db.VarChar(35)
   cidade    cidade     @relation(fields: [id_cidade], references: [id_cidade], onDelete: NoAction, onUpdate: NoAction)
@@ -59,7 +61,7 @@ model bairro {
 }
 
 model cidade {
-  id_cidade Int      @id
+  id_cidade Int      @id @default(autoincrement())
   id_estado Int
   nome      String   @db.VarChar(35)
   bairro    bairro[]
@@ -67,7 +69,7 @@ model cidade {
 }
 
 model endereco {
-  id_endereco Int       @id
+  id_endereco Int       @id @default(autoincrement())
   cep         String?   @db.VarChar(12)
   id_bairro   Int
   endereco    String?   @db.VarChar(50)
@@ -78,79 +80,69 @@ model endereco {
 }
 
 model estado {
-  id_estado Int      @id
+  id_estado Int      @id @default(autoincrement())
   nome      String   @db.VarChar(35)
   uf        String   @db.VarChar(2)
   cidade    cidade[]
 }
 
 model exercicio {
-  id_exercicio     Int                @id
+  id_exercicio     Int                @id @default(autoincrement())
   nome_exercicio   String             @db.VarChar(50)
   treino_exercicio treino_exercicio[]
 }
 
 model fatura {
-  id_fatura       Int      @id
+  id_fatura       Int      @id @default(autoincrement())
+  id_plano        Int
   valor           Decimal  @db.Money
   data_pagamento  DateTime @db.Date
   data_vencimento DateTime @db.Date
-  plano           plano[]
-}
-
-model personal_trainer {
-  id_personal Int         @id
-  cref        String      @db.VarChar(12)
-  avaliacao   avaliacao[]
-  plano       plano[]
-  rotina      rotina[]
-  usuario     usuario[]
+  plano           plano    @relation(fields: [id_plano], references: [id_plano], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model plano {
-  id_plano         Int              @id
-  tipo_plano       String           @db.VarChar(35)
-  valor            Decimal          @db.Money
-  id_personal      Int
-  data_inicio      DateTime         @db.Date
-  data_termino     DateTime         @db.Date
-  recursivo        Boolean
-  qtd_recursivo    String?          @db.VarChar(20)
-  id_fatura        Int
-  aluno            aluno[]
-  fatura           fatura           @relation(fields: [id_fatura], references: [id_fatura], onDelete: NoAction, onUpdate: NoAction)
-  personal_trainer personal_trainer @relation(fields: [id_personal], references: [id_personal], onDelete: NoAction, onUpdate: NoAction)
+  id_plano      Int      @id @default(autoincrement())
+  tipo_plano    String   @db.VarChar(35)
+  valor         Decimal  @db.Money
+  id_admin      Int
+  id_aluno      Int
+  data_inicio   DateTime @db.Date
+  data_termino  DateTime @db.Date
+  recursivo     Boolean
+  qtd_recursivo String?  @db.VarChar(20)
+  fatura        fatura[]
+  admin         admin    @relation(fields: [id_admin], references: [id_admin], onDelete: NoAction, onUpdate: NoAction)
+  aluno         aluno    @relation(fields: [id_aluno], references: [id_aluno], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model rotina {
-  id_rotina        Int              @id
-  nome             String           @db.VarChar(60)
-  id_usuario       Int
-  id_personal      Int
-  personal_trainer personal_trainer @relation(fields: [id_personal], references: [id_personal], onDelete: NoAction, onUpdate: NoAction)
-  usuario          usuario          @relation(fields: [id_usuario], references: [id_usuario], onDelete: NoAction, onUpdate: NoAction)
-  rotina_treino    rotina_treino[]
+  id_rotina     Int             @id @default(autoincrement())
+  nome          String          @db.VarChar(60)
+  id_usuario    Int
+  usuario       usuario         @relation(fields: [id_usuario], references: [id_usuario], onDelete: NoAction, onUpdate: NoAction)
+  rotina_treino rotina_treino[]
 }
 
 model rotina_treino {
   id_treino        Int
   id_rotina        Int
   sequencia_treino String? @db.VarChar(200)
-  id               Int     @id @default(autoincrement())
   rotina           rotina  @relation(fields: [id_rotina], references: [id_rotina], onDelete: NoAction, onUpdate: NoAction)
   treino           treino  @relation(fields: [id_treino], references: [id_treino], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([id_treino, id_rotina])
 }
 
 model telefone {
-  id_telefone Int     @id
+  id_telefone Int     @id @default(autoincrement())
   ddd         Decimal @db.Decimal(3, 0)
   numero      String  @db.VarChar(12)
   id_usuario  Int
-  usuario     usuario @relation(fields: [id_usuario], references: [id_usuario], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model treino {
-  id_treino        Int                @id
+  id_treino        Int                @id @default(autoincrement())
   nome             String?            @db.VarChar(35)
   rotina_treino    rotina_treino[]
   treino_exercicio treino_exercicio[]
@@ -163,25 +155,37 @@ model treino_exercicio {
   qtd_rep      Int       @db.SmallInt
   qtd_carga    String    @db.VarChar(30)
   comentario   String?   @db.VarChar(250)
-  id           Int       @id @default(autoincrement())
   exercicio    exercicio @relation(fields: [id_exercicio], references: [id_exercicio], onDelete: NoAction, onUpdate: NoAction)
   treino       treino    @relation(fields: [id_treino], references: [id_treino], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([id_exercicio, id_treino])
 }
 
 model usuario {
-  id_usuario       Int               @id
-  user_id          String            @db.VarChar(35)
-  tipo_user        Boolean
-  senha            String            @db.VarChar(30)
-  id_aluno         Int?
-  id_personal      Int?
-  cpf              String            @db.VarChar(20)
-  email            String            @db.VarChar(100)
-  nome             String            @db.VarChar(50)
-  id_endereco      Int
-  rotina           rotina[]
-  telefone         telefone[]
-  aluno            aluno?            @relation(fields: [id_aluno], references: [id_aluno], onDelete: NoAction, onUpdate: NoAction)
-  endereco         endereco          @relation(fields: [id_endereco], references: [id_endereco], onDelete: NoAction, onUpdate: NoAction)
-  personal_trainer personal_trainer? @relation(fields: [id_personal], references: [id_personal], onDelete: NoAction, onUpdate: NoAction)
+  id_usuario  Int      @id @default(autoincrement())
+  user_id     String   @db.VarChar(35)
+  tipo_user   Boolean
+  senha       String   @db.VarChar(200)
+  cpf         String   @db.VarChar(20)
+  email       String   @db.VarChar(100)
+  nome        String   @db.VarChar(50)
+  id_endereco Int
+  userimg     String?  @db.VarChar(255)
+  admin       admin[]
+  aluno       aluno[]
+  rotina      rotina[]
+  endereco    endereco @relation(fields: [id_endereco], references: [id_endereco], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([cpf, email, user_id], map: "type")
+}
+
+model admin {
+  id_admin   Int         @id @default(autoincrement())
+  cref       String?     @db.VarChar(20)
+  cnpj       String?     @db.VarChar(25)
+  id_usuario Int
+  usuario    usuario     @relation(fields: [id_usuario], references: [id_usuario], onDelete: NoAction, onUpdate: NoAction)
+  aluno      aluno[]
+  avaliacao  avaliacao[]
+  plano      plano[]
 }
