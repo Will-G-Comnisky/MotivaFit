@@ -1,4 +1,4 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
 import userRoutes from "./user.routes";
 
 const routes = (app: Router) => {
@@ -6,9 +6,6 @@ const routes = (app: Router) => {
 }
 
 export default routes;
-
-
-
 
 
 
