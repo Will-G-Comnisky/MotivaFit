@@ -1,9 +1,11 @@
 import { Prisma, usuario } from '@prisma/client';
 import { prisma } from '../database/prisma';
+import User from '../interfaces/user.interface'
+
 
 
 class UserRepository {
-  create = async (data: usuario) => {
+  create = async (data: User) => {
     const user = await prisma.usuario.create({
       data,
       select: {
@@ -58,7 +60,7 @@ class UserRepository {
     return user;
   }
 
-  updateUser = async (id: number, data: usuario) => {
+  updateUser = async (id: number, data: User) => {
     const user = await prisma.usuario.update({
       where: {
         id_usuario: id
