@@ -48,6 +48,7 @@ export const authenticate = async (req: Request, res: Response) => {
 
 export const logout = (req: Request, res: Response) => {
   // Limpar o token armazenado no navegador
+  res.clearCookie('token'); 
   // localStorage.removeItem('token'); // Se estiver usando armazenamento local (localStorage)
   return res.status(StatusCodes.OK).send({ message: 'Logout realizado com sucesso' });
 };
