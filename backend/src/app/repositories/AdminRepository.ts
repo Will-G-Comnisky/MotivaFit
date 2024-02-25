@@ -58,7 +58,7 @@ class AdminRepository {
     return admin;
   };
 
-  deleteUser = async (id: number) => {
+  deleteAdmin = async (id: number) => {
     await prisma.admin.delete({
       where: {
         id_admin: id, 

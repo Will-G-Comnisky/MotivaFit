@@ -35,17 +35,16 @@ class AlunoRepository {
 
   getById = async (id: number) => {
     const aluno = await prisma.aluno.findUnique({
-      select: {
-        id_aluno: true, 
-        data_nasc: true,
-        altura: true,
-        xp: true,
-        nivel: true,         
-        id_usuario: true,       
-        id_admin: true,  
-      },
       where: {
         id_aluno: id
+      },
+      include: {
+        admin: true,
+        usuario: {
+          include: {
+            endereco: true
+          }
+        },
       }
     });
     return aluno;

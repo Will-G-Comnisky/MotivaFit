@@ -25,7 +25,6 @@ export const AdminController = {
     }
   },
 
-/*
   async getAllAdmins(req: Request, res: Response): Promise<void> {
     try {
       const admins = await AdminRepository.getAll();
@@ -34,7 +33,7 @@ export const AdminController = {
       res.status(StatusCodes.BAD_REQUEST).send(error); 
     }
   },
-*/
+
 
   async getAdminById(req: Request, res: Response): Promise<void> {
     try {
@@ -62,8 +61,8 @@ export const AdminController = {
 
   async deleteAdmin(req: Request, res: Response): Promise<void> {
     try {
-      await AdminRepository.deleteUser(Number(req.params.id));
-      res.status(StatusCodes.OK).send('Aluno removido com sucesso!')
+      await AdminRepository.deleteAdmin(Number(req.params.id));
+      res.status(StatusCodes.OK).send('Administrador removido com sucesso!')
     } catch (error) {
       res.status(StatusCodes.BAD_REQUEST).send(error);
     }
