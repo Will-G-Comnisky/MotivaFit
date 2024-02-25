@@ -3,12 +3,14 @@ import userRoutes from "./user.routes";
 import authRoutes from "./auth.routes";
 import addressRoutes from "./address.routes";
 import alunoRoutes from "./aluno.routes";
+import adminRoutes from "./admin.routes";
 
 const routes = (app: Router) => {
     userRoutes(app);
     authRoutes(app);
     addressRoutes(app);
     alunoRoutes(app);
+    adminRoutes(app);
 }
 
 export default routes;

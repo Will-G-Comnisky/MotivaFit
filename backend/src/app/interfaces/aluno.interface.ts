@@ -1,6 +1,6 @@
 interface Aluno {
   id_aluno: number;
-  data_nasc: Date;
+  data_nasc: string;
   altura: number;
   xp: number;
   nivel: number;

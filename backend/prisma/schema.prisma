@@ -9,8 +9,8 @@ datasource db {
 
 model aluno {
   id_aluno   Int         @id @default(autoincrement())
-  data_nasc  DateTime    @db.Date
-  altura     Decimal     @db.Decimal(3, 2)
+  data_nasc  String   @db.VarChar(20)
+  altura     Int
   xp         Int
   nivel      Int
   id_usuario Int
