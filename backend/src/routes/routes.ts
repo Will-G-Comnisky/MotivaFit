@@ -1,10 +1,12 @@
 import { Router } from "express";
 import userRoutes from "./user.routes";
 import authRoutes from "./auth.routes";
+import addressRoutes from "./address.routes";
 
 const routes = (app: Router) => {
     userRoutes(app);
     authRoutes(app);
+    addressRoutes(app);
 }
 
 export default routes;

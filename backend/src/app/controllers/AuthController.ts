@@ -1,7 +1,7 @@
 import { prisma } from "../database/prisma";
 import jwt from 'jsonwebtoken';
 import { StatusCodes } from "http-status-codes";
-import { request, Request, Response } from "express";
+import { Request, Response } from "express";
 import bcrypt from "bcrypt"
 
 export const authenticate = async (req: Request, res: Response) => {
@@ -25,7 +25,7 @@ export const authenticate = async (req: Request, res: Response) => {
     if (user && bcrypt.compareSync(senha, user.senha)) {
       const token = jwt.sign({
         id_usuario: user.id_usuario,
-        tipo_user: user.tipo_user,
+        tipo_user: true,
         email: user.email,
         nome: user.nome,
         userimg: user.userimg
@@ -44,4 +44,10 @@ export const authenticate = async (req: Request, res: Response) => {
     console.log(error);
     return res.status(StatusCodes.BAD_REQUEST).send(error);
   };
+};
+
+export const logout = (req: Request, res: Response) => {
+  // Limpar o token armazenado no navegador
+  // localStorage.removeItem('token'); // Se estiver usando armazenamento local (localStorage)
+  return res.status(StatusCodes.OK).send({ message: 'Logout realizado com sucesso' });
 };

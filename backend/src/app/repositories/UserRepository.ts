@@ -1,4 +1,3 @@
-import { Prisma, usuario } from '@prisma/client';
 import { prisma } from '../database/prisma';
 import User from '../interfaces/user.interface'
 
@@ -88,7 +87,38 @@ class UserRepository {
       },
     });
     return;
-  }
+  };
+
+  findByCpf = async (cpf: string) => {
+    const user = await prisma.usuario.findFirst({
+      where: {
+        OR: [
+          { cpf: cpf },
+        ],
+      },
+    });
+    return user;
+  };
+  findByEmail = async (email: string) => {
+    const user = await prisma.usuario.findFirst({
+      where: {
+        OR: [
+          { email: email },
+        ],
+      },
+    });
+    return user;
+  };
+  findByUserId = async (user_id: string) => {
+    const user = await prisma.usuario.findFirst({
+      where: {
+        OR: [
+          { user_id: user_id},
+        ],
+      },
+    });
+    return user;
+  };
 };
 
 export default new UserRepository();

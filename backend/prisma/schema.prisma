@@ -52,38 +52,17 @@ model avaliacao {
   aluno                  aluno    @relation(fields: [id_aluno], references: [id_aluno], onDelete: NoAction, onUpdate: NoAction)
 }
 
-model bairro {
-  id_bairro Int        @id @default(autoincrement())
-  id_cidade Int
-  nome      String     @db.VarChar(35)
-  cidade    cidade     @relation(fields: [id_cidade], references: [id_cidade], onDelete: NoAction, onUpdate: NoAction)
-  endereco  endereco[]
-}
-
-model cidade {
-  id_cidade Int      @id @default(autoincrement())
-  id_estado Int
-  nome      String   @db.VarChar(35)
-  bairro    bairro[]
-  estado    estado   @relation(fields: [id_estado], references: [id_estado], onDelete: NoAction, onUpdate: NoAction)
-}
-
 model endereco {
   id_endereco Int       @id @default(autoincrement())
   cep         String?   @db.VarChar(12)
-  id_bairro   Int
+  cidade      String   @db.VarChar(35)
+  estado      String   @db.VarChar(35)
+  uf        String   @db.VarChar(2)
+  bairro      String   @db.VarChar(35)
   endereco    String?   @db.VarChar(50)
   numero      String?   @db.VarChar(5)
   complemento String?   @db.VarChar(50)
-  bairro      bairro    @relation(fields: [id_bairro], references: [id_bairro], onDelete: NoAction, onUpdate: NoAction)
   usuario     usuario[]
-}
-
-model estado {
-  id_estado Int      @id @default(autoincrement())
-  nome      String   @db.VarChar(35)
-  uf        String   @db.VarChar(2)
-  cidade    cidade[]
 }
 
 model exercicio {

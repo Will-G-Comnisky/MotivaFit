@@ -1,18 +1,34 @@
 import bcrypt from "bcrypt";
 import { userValidation } from "../../validations/user.validation"
 import { StatusCodes } from 'http-status-codes'
-import { request, Request, response, Response } from 'express';
+import { Request, Response } from 'express';
 import UserRepository from '../repositories/UserRepository';
 
+
 export const UserController = {
-  async createUser(req: Request, res: Response): Promise<void> {
+  async createUser(req: Request, res: Response) {
     try {
       await userValidation.validate(req.body);
+
+       // Verificar se o CPF ou e-mail já estão em uso
+      const existingUserCpf = await UserRepository.findByCpf(req.body.cpf);
+      const existingUserEmail = await UserRepository.findByEmail(req.body.email);
+      const existingUserId = await UserRepository.findByUserId(req.body.user_id);
+      if (existingUserCpf) {
+        return res.status(StatusCodes.BAD_REQUEST).send('Este CPF já está em uso');
+      }
+      if (existingUserEmail) {
+        return res.status(StatusCodes.BAD_REQUEST).send('Este e-mail já está em uso');
+      }
+      if (existingUserId) {
+        return res.status(StatusCodes.BAD_REQUEST).send('Este user_id já está em uso');
+      }
 
       const senhaHash = await bcrypt.hash(req.body.senha, 10);
       req.body.senha = senhaHash;
 
       const user = await UserRepository.create(req.body);
+
       res.status(StatusCodes.CREATED).send(user);
     } catch (error) {
       res.status(StatusCodes.BAD_REQUEST).send(error);    
@@ -60,8 +76,6 @@ export const UserController = {
       res.status(StatusCodes.BAD_REQUEST).send(error);
     }
   }
-
-
 }
 
 /*
