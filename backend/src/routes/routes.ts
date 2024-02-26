@@ -4,6 +4,7 @@ import authRoutes from "./auth.routes";
 import addressRoutes from "./address.routes";
 import alunoRoutes from "./aluno.routes";
 import adminRoutes from "./admin.routes";
+import avaliacaoRoutes from "./avaliacao.routes";
 
 const routes = (app: Router) => {
     userRoutes(app);
@@ -11,6 +12,7 @@ const routes = (app: Router) => {
     addressRoutes(app);
     alunoRoutes(app);
     adminRoutes(app);
+    avaliacaoRoutes(app);
 }
 
 export default routes;

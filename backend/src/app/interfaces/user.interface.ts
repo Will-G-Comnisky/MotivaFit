@@ -1,7 +1,7 @@
 interface User {
   id_usuario: number;
   user_id: string;
-  tipo_user: boolean;
+  tipo_user: string;
   senha: string;
   cpf: string;
   email: string;

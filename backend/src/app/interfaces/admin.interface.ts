@@ -1,7 +1,8 @@
+
 interface Admin {
   id_admin: number,
   cref: string;
-  cnpj: string;
+  cnpj?: string;
   id_usuario: number;
 }
 

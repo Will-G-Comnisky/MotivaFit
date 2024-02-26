@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 export const userValidation = yup.object({
-  tipo_user: yup.boolean().required(),
+  tipo_user: yup.string().required(),
   senha: yup.string().required().min(6),
   cpf: yup.string().required(),         
   email: yup.string().required().email(),      

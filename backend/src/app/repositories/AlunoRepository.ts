@@ -20,15 +20,14 @@ class AlunoRepository {
 
   getAll = async () => {
     const alunos = await prisma.aluno.findMany({
-      select: {
-        id_aluno: true, 
-        data_nasc: true,
-        altura: true,
-        xp: true,
-        nivel: true,         
-        id_usuario: true,       
-        id_admin: true,  
-      },
+      include: {
+        admin: true,
+        usuario: {
+          include: {
+            endereco: true
+          }
+        },
+      }
     });
     return alunos;
   };
@@ -56,15 +55,14 @@ class AlunoRepository {
         id_aluno: id
       },
       data,
-      select: {
-        id_aluno: true, 
-        data_nasc: true,
-        altura: true,
-        xp: true,
-        nivel: true,         
-        id_usuario: true,       
-        id_admin: true,  
-      },
+      include: {
+        admin: true,
+        usuario: {
+          include: {
+            endereco: true
+          }
+        },
+      }
     });
     return aluno;
   };

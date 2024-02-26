@@ -6,7 +6,7 @@ import bcrypt from "bcrypt"
 
 export const authenticate = async (req: Request, res: Response) => {
   try {
-    const { user_id, senha} = req.body;
+    const { user_id, tipo_user, senha} = req.body;
 
     if(!(user_id && senha)) {
       return res.status(StatusCodes.BAD_REQUEST).send({ message: "Usuário e senha devem ser preenchidos"});
@@ -25,7 +25,7 @@ export const authenticate = async (req: Request, res: Response) => {
     if (user && bcrypt.compareSync(senha, user.senha)) {
       const token = jwt.sign({
         id_usuario: user.id_usuario,
-        tipo_user: true,
+        tipo_user: tipo_user,
         email: user.email,
         nome: user.nome,
         userimg: user.userimg

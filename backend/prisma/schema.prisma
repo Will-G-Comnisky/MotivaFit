@@ -9,7 +9,7 @@ datasource db {
 
 model aluno {
   id_aluno   Int         @id @default(autoincrement())
-  data_nasc  String   @db.VarChar(20)
+  data_nasc  String      @db.VarChar(20)
   altura     Int
   xp         Int
   nivel      Int
@@ -55,10 +55,10 @@ model avaliacao {
 model endereco {
   id_endereco Int       @id @default(autoincrement())
   cep         String?   @db.VarChar(12)
-  cidade      String   @db.VarChar(35)
-  estado      String   @db.VarChar(35)
-  uf        String   @db.VarChar(2)
-  bairro      String   @db.VarChar(35)
+  cidade      String    @db.VarChar(35)
+  estado      String    @db.VarChar(35)
+  uf          String    @db.VarChar(2)
+  bairro      String    @db.VarChar(35)
   endereco    String?   @db.VarChar(50)
   numero      String?   @db.VarChar(5)
   complemento String?   @db.VarChar(50)
@@ -143,7 +143,7 @@ model treino_exercicio {
 model usuario {
   id_usuario  Int      @id @default(autoincrement())
   user_id     String   @db.VarChar(35)
-  tipo_user   Boolean
+  tipo_user   String  @db.VarChar(20)
   senha       String   @db.VarChar(200)
   cpf         String   @db.VarChar(20)
   email       String   @db.VarChar(100)
