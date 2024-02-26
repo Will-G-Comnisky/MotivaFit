@@ -1,0 +1,19 @@
+#FinanceiroPage {
+  background: linear-gradient(to right, rgb(87, 10, 146), rgb(88 28 135));
+  height: 100vh;
+}
+
+.Button {
+  background-color: rgb(112 26 117);
+  display: block;
+  margin: 0 auto;
+  width: 4rem;
+  height: 2rem;
+  display: block;
+  color: white;
+  border-radius: 5px;
+}
+
+.Button:hover {
+  background-color: rgb(33, 86, 156);
+}

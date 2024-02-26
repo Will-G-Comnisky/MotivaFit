@@ -1,0 +1,54 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, rgb(2 6 23), rgb(15 23 42));
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: rgb(226 232 240);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  width: 20rem;
+  height: 25rem;
+}
+
+#idLoginBoxLogoTxt {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+#idLoginBoxLogoTxt > img {
+  width: 14rem;
+}
+
+.login-box button {
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: rgb(74 4 78);
+  box-shadow: 0.1rem 0.1rem 0.4rem rgba(74, 4, 78, 0.377);
+  color: white;
+  cursor: pointer;
+  width: 90%;
+  font-size: 1.4rem;
+}
+
+.login-box p {
+  margin-top: 20px;
+}
+
+.login-box a {
+  color: #2a5298;
+}
+
+.login-box button:hover {
+  background-color: #113d8a;
+}

@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+/* ----- Banner Background ----- */
+
+#idBannerBackground {
+    height: 20rem;
+    background: linear-gradient(to right, rgb(87, 10, 146), rgb(88 28 135));
+    box-shadow: 0rem 0 1rem inset rgba(0, 0, 0, 0.349);
+    display: grid;
+    margin-bottom: 3rem;
+  }
+  
+  #idResumoBanner{
+    background-color: white;
+    box-shadow: -0.1rem 0.2rem 1rem rgba(0, 0, 0, 0.37);
+    border-radius: 1rem;
+    margin: auto;
+    height: 17rem;
+    width: 50rem;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    place-items: center;  
+    color: black;
+  }
+  
+  #idResumoBanner > div > img {
+    border-radius: 50%;
+    margin: auto;
+    width: 15rem;
+  }
+  
+  #idBannerUserInfo{
+    width: 90%;
+    font-family: Arial, Helvetica, sans-serif;
+  
+    display: grid;
+    place-items: center left;
+  }
+  
+  #idBannerUserName{
+    font-weight: bold;
+    display: block;
+    height: 2rem;
+  }
+  
+  #idProgressoTxt{
+    margin-bottom: 0.4rem;
+  }
+  
+  #idBannerBarraDeProgresso{
+    background-color: rgba(128, 128, 128, 0.521);
+    height: 2rem;
+    width: 20rem;
+    border-radius: 1rem;
+    box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.267);
+  }
+  
+  #idBannerProgresso{
+    background-color: rgb(0, 213, 241);
+    color: white;
+  
+    box-shadow: 0.5rem 0rem 0.8rem rgba(0, 210, 218, 0.267);
+  
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+  
+    width: 15%;
+
+    height: 2rem;
+    border-radius: 1rem;
+    display: grid;
+    place-items: center;
+  }
+  
+  #idBannerBotaoBackground{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4fr 1fr ;
+  }
+  
+  #idBannerBotao{
+    display: block;
+    background-color: rgb(88 28 135);
+    border: none;
+    margin-top: 4rem;
+    color: white;
+    font-weight: bold;
+    padding: 0.2rem;
+    border-radius: 1rem;
+  }
+  
+  #idBannerBotao:hover{
+    cursor: pointer;
+    background-color: rgb(33, 86, 156);
+  }

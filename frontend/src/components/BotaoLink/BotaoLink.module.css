@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+#idBotaoLink {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.clBotaoName {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: white;
+  text-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.158);
+}
+
+#idBotaoBackground {
+  background-color: rgb(112 26 117);
+  box-shadow: 0rem 0.3rem 0.3rem rgba(0, 0, 0, 0.397);
+  border-radius: 50%;
+  width: 6.2rem;
+  height: 6.2rem;
+  display: block;
+}
+
+#idBotaoBackground:hover {
+  background-color: rgb(33, 86, 156);
+}
+
+#idRanking {
+  margin-left: 0.2rem;
+  margin-bottom: 2rem;
+}
+
+.clBotaoImg{
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-top: 0.9rem;
+}
+
+#idText {
+  color: rgb(112 26 117);
+}

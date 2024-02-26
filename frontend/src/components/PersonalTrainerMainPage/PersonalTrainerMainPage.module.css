@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+/* ----- Pagina Principal ----- */
+
+#idMain {
+    background-color: rgb(15 23 42);
+    height: 100%;
+    padding-bottom: 1rem;
+    
+}
+
+
+
+/* ----- Botôes ----- */
+
+#idBotoesPaginaPrincipal{
+    margin: auto;
+    display: grid;
+    width: 90%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
+
+#idCadastrarAluno{
+    margin-top: 3rem;
+    margin: auto;
+    width: 60rem;
+}
+
+
+
+
+
+/* ----- Lista ALunos ----- */
+
+#idListaAluno{
+    background-color: rgb(226 232 240);
+    width: 90%;
+    max-width: 85rem;
+
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+    
+
+    border-radius: 1rem;
+    box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.192);
+}
+
+#idAlunosNavBar{
+    display: grid;
+    /* ---- Melhor Layout para celular se ---- */
+    /* ---- A partir de 700px mudar par a 12fr 2fr ---- */
+    grid-template-columns: 12fr 1fr;
+    place-items:  center;
+}
+
+#idAlunosFiltro{
+    display: grid;
+    place-items: center;
+}
+
+#idButtonBackground{
+    background-color: white;
+    border: none;
+    border-radius: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.199);
+}
+
+#idButtonBackground:hover{
+    cursor: pointer;
+}
+
+#idAlunoFiltroImg{
+    width: 2.5rem;
+    margin-top: 0.15rem;
+}
+
