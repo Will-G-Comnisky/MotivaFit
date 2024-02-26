@@ -33,7 +33,8 @@ a {
   border-radius: 50%;
   width: 6.2rem;
   height: 6.2rem;
-  display: block;
+  display: grid;
+  place-items: center;
 }
 
 #idBotaoBackground:hover {
@@ -46,9 +47,9 @@ a {
 }
 
 .clBotaoImg{
-    width: 4.5rem;
-    height: 4.5rem;
-    margin-top: 0.9rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  
 }
 
 #idText {

@@ -6,6 +6,7 @@ import LoginAluno from './components/LoginAluno/LoginAluno';
 import PersonalTrainerMainPage from './components/PersonalTrainerMainPage/PersonalTrainerMainPage';
 import AlunoMainPage from './components/AlunoMainPage/AlunoMainPage';
 import MeusTreinosPage from './components/MeusTreinosPage/MeusTreinosPage'
+import RankingPage from './components/RankingPage/RankingPage'
 import FinanceiroPage from './components/FinanceiroPage/FinanceiroPage'
 import LogOffPage from './components/LogOffPage/LogOffPage'
 import CreateAccountPage from './components/CreateAccountPage/CreateAccountPage';
@@ -23,6 +24,7 @@ function App() {
         />
         <Route path="/AlunoMainPAge" element={<AlunoMainPage />} />
         <Route path="/MeusTreinosPage" element={<MeusTreinosPage />} />
+        <Route path="/RankingPage" element={<RankingPage/>} />
         <Route path="/FinanceiroPage" element={<FinanceiroPage />} />
         <Route path="/LogOffPage" element={<LogOffPage />} />
         <Route path="/CreateAccountPage" element={<CreateAccountPage />} />
