@@ -23,12 +23,10 @@ export const authenticate = async (req: Request, res: Response) => {
     };
 
     if (user && bcrypt.compareSync(senha, user.senha)) {
+      console.log(`O tipo user é: ${user.tipo_user}`);
       const token = jwt.sign({
         id_usuario: user.id_usuario,
-        tipo_user: tipo_user,
-        email: user.email,
-        nome: user.nome,
-        userimg: user.userimg
+        tipo_user: user.tipo_user
       },
       String(process.env.TOKEN_KEY),
       {

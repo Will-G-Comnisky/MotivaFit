@@ -14,6 +14,7 @@ export const UserController = {
       const existingUserCpf = await UserRepository.findByCpf(req.body.cpf);
       const existingUserEmail = await UserRepository.findByEmail(req.body.email);
       const existingUserId = await UserRepository.findByUserId(req.body.user_id);
+      
       if (existingUserCpf) {
         return res.status(StatusCodes.BAD_REQUEST).send('Este CPF já está em uso');
       }

@@ -1,13 +1,16 @@
 import { avaliacoesValidation } from "../../validations/avaliacoes.validation";
 import { StatusCodes } from "http-status-codes";
-import { request, Request, Response } from "express";
+import { Request, Response } from "express";
 import AvaliacoesRepository from "../repositories/AvaliacoesRepository";
 
 export const AvaliacoesController = {
   async createAvaliacao(req: Request, res: Response) {
     try {
+      await avaliacoesValidation.validate(req.body);
+
       const avaliacoes = await AvaliacoesRepository.create(req.body);
       res.status(StatusCodes.CREATED).send(avaliacoes);
+
     } catch (error) {
       res.status(StatusCodes.BAD_REQUEST).send({ message: error})
     };

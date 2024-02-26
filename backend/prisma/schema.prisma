@@ -115,7 +115,7 @@ model rotina_treino {
 
 model telefone {
   id_telefone Int     @id @default(autoincrement())
-  ddd         Decimal @db.Decimal(3, 0)
+  ddd         String  @db.VarChar(12)
   numero      String  @db.VarChar(12)
   id_usuario  Int
 }

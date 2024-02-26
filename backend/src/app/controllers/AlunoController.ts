@@ -85,6 +85,17 @@ export const AlunoController = {
     } catch (error) {
       res.status(StatusCodes.BAD_REQUEST).send(error);
     }
+  },
+
+  async getAllAlunosByAdminId(req: Request, res: Response) {
+    try {
+      const adminId = Number(req.params.adminId); // adminId deve ser passado como parâmetro na rota
+      const alunos = await AlunoRepository.getAllAlunosByAdminId(adminId);
+      res.status(StatusCodes.OK).json(alunos);
+    } catch (error) {
+      console.error('Erro ao buscar alunos:', error);
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Erro ao buscar alunos');
+    }
   }
 }
 

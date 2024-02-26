@@ -1,5 +1,7 @@
 import { prisma } from '../database/prisma';
 import Aluno from '../interfaces/aluno.interface'
+import User from '../interfaces/user.interface';
+
 
 class AlunoRepository {
   create = async (data: Aluno) => {
@@ -75,6 +77,23 @@ class AlunoRepository {
     });
     return;
   };
+
+  getAllAlunosByAdminId = async(adminId: number): Promise<Aluno[]> => {
+    const alunos = await prisma.aluno.findMany({
+      where: {
+        id_admin: adminId,
+        usuario: {
+          tipo_user: {
+            in: ["aluno"] // Filtra os usuários do tipo "aluno" ou "false"
+          }
+        }
+      },
+      include: {
+        usuario: true
+      }
+    });
+    return alunos;
+  }
 };
 
 export default new AlunoRepository();

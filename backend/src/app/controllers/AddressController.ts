@@ -14,7 +14,7 @@ export const AddressController = {
       res.status(StatusCodes.CREATED).send(address);
 
     } catch (error) {
-      res.status(StatusCodes.BAD_REQUEST).send(error);    
+      res.status(StatusCodes.BAD_REQUEST).send({ message: error});
     }
   },
 
@@ -28,7 +28,7 @@ export const AddressController = {
     }
   },
 
-  async getAddressById(req: Request, res: Response): Promise<void> {
+  async getAddressById(req: Request, res: Response) {
     try {
       const address = await AddressRepository.getById(Number(req.params.id));
 
