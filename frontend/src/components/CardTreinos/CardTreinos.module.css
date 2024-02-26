@@ -1,54 +1,53 @@
 @charset "UTF-8";
 
 #idTreinoCard {
-    background-color: white;
-    height: 3rem;
-    margin: auto;
-    margin-top: 1rem;
-    width: 95%;
-    border-radius: 0.5rem;
-    box-shadow: 0.2rem 0.1rem 1rem rgba(0, 0, 0, 0.199);
+  background-color: white;
+  height: 3rem;
+  margin: auto;
+  margin-top: 1rem;
+  width: 95%;
+  border-radius: 0.5rem;
+  box-shadow: 0.2rem 0.1rem 1rem rgba(0, 0, 0, 0.199);
 
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
-    display: grid;
-    grid-template-columns: 2fr 14fr 20fr 1fr;
+  display: grid;
+  grid-template-columns: 2fr 14fr 20fr 1fr;
 }
 
-#idTreinoCard:hover{
-    cursor: pointer;
+#idTreinoCard:hover {
+  cursor: pointer;
 }
 
-
-#idTreinoImg{
-    width: 2.5rem;
-    border-radius: 2rem;
-    padding-top: 0.25rem;
-    padding-left: 1rem;
-    margin: auto;
+#idTreinoImg {
+  width: 2.5rem;
+  border-radius: 2rem;
+  padding-top: 0.25rem;
+  padding-left: 1rem;
+  margin: auto;
 }
 
-#idTreinoNome{
-    margin: auto;
-    font-size: 1rem;
-    font-weight: bold;
+#idTreinoNome {
+  margin: auto;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
-#idGrupoTreino{
-    display: grid;
-    place-items: center left;
-    
-    text-align: left;
-    font-size: 1.1rem
+#idGrupoTreino {
+  display: grid;
+  place-items: center left;
+
+  text-align: left;
+  font-size: 1.1rem;
 }
 
-#idInfoIcon{
-    width: 2.1rem;
-    padding-top: 0.45rem;
-    margin-right: 1rem;
+#idInfoIcon {
+  width: 2.1rem;
+  padding-top: 0.45rem;
+  margin-right: 1rem;
 }
 
-#idImg{
-    width: 2.5rem;
-    margin-top: 0.2rem;
+#idImg {
+  width: 2.5rem;
+  margin-top: 0.2rem;
 }
