@@ -15,13 +15,14 @@ import { alunoList } from "../../data/alunoList";
 // ----- Imagens Temporarias -----
 // -- Logo --
 import logo from "../../assets/logo.png";
-// -- Botoes --
 
+// -- Botoes --
 import meusTreinos from "../../assets/meusTreinos.png"
 import ranking from "../../assets/rankingEDesafios.png"
 import agendamentos from "../../assets/agendamento.png"
 import financeiro from "../../assets/financeiro.png"
 import novo from "../../assets/novo.png"
+import botaoX from "../../assets/BotaoX.png"
 // -- Banner --
 
 // -- Lista Alunos --
@@ -134,57 +135,31 @@ function PersonalTrainerMainPage(props) {
       
 
     {showTerms && (
-    <div id="idCadastroAlnuo" className="create-account-container"
-    >
-      <form>
-      <div id='idCloseNav'>
-        <div id='idFiller'></div>
-        <button id='idCloseButton' onClick={() => setShowTerms(false)}>X</button>
+      <div id={styles.idCadastroAlnuo} className={styles.clCreateAccountContainer}>
+        <form>
+        <div id={styles.idCloseNav}>
+          <div id={styles.idFiller}></div>
+          <button id={styles.idCloseButton} onClick={() => setShowTerms(false)}><img src={botaoX}/></button>
+        </div>
+          <h2>Cadastre um Aluno</h2>
+          <input type="text" placeholder="Nome Completo" />
+          <input type="email" placeholder="Email" />
+          <input type="text" placeholder="Senha" />
+          <input type="text" placeholder="CPF" />
+          <select>
+            <option value="">Sexo</option>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+            <option value="outro">Outro</option>
+          </select>
+          <label>Data de Nascimento:</label>
+          <input type="date" />
+          <input type="submit" value="Cadastrar Aluno" />
+      
+        </form>
       </div>
-        <h2>Cadastre um Aluno</h2>
-        <input type="text" placeholder="Nome Completo" />
-        <input type="email" placeholder="Email" />
-        <input type="text" placeholder="Senha" />
-        <input type="text" placeholder="CPF" />
-        <select>
-          <option value="">Sexo</option>
-          <option value="masculino">Masculino</option>
-          <option value="feminino">Feminino</option>
-          <option value="outro">Outro</option>
-        </select>
-        <label>Data de Nascimento:</label>
-        <input type="date" />
-        <input type="submit" value="Cadastrar Aluno" />
-        
-      </form>
-    </div>
     )}
 
-
-      {showTerms && (
-        <div
-          id="idCadastroAlnuo"
-          className="create-account-container"
-          onClick={() => setShowTerms(false)}
-        >
-          <form>
-            <h2>Cadastre um Aluno</h2>
-            <input type="text" placeholder="Nome Completo" />
-            <input type="email" placeholder="Email" />
-            <input type="text" placeholder="Senha" />
-            <input type="text" placeholder="CPF" />
-            <select>
-              <option value="">Sexo</option>
-              <option value="masculino">Masculino</option>
-              <option value="feminino">Feminino</option>
-              <option value="outro">Outro</option>
-            </select>
-            <label>Data de Nascimento:</label>
-            <input type="date" />
-            <input type="submit" value="Cadastrar Aluno" />
-          </form>
-        </div>
-      )}
 
       <div id={styles.idListaAluno}>
         <div id={styles.idAlunosNavBar}>

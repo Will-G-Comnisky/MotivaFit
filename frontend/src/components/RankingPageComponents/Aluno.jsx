@@ -1,5 +1,4 @@
-import trophy from '../../assets/icons8-trophy.png'
-import profileWill from '../../assets/William.png'
+
 
 const Aluno = ({profileImg, name, trainer, level, expProgress, exp}) => {
 

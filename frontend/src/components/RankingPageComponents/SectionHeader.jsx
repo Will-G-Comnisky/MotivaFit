@@ -1,8 +1,5 @@
 import React from "react";
-import GoalsSection from "./GoalsSection";
-import ListGoals from "./ListGoals";
-import Goal from "./Goal";
-import CreateGoals from "./CreateGoals";
+
 
 const SectionHeader = ({text, bg, length}) => {
   return (

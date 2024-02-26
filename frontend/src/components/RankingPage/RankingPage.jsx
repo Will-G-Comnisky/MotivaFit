@@ -1,19 +1,21 @@
-import './App.css';
+
+
 import React from 'react';
-import NavBar from './components/NavBar';
+import styles from "./RankingPage.module.css"
+import NavBar from '../../components/NavBar/NavBar';
 // import Goals from './components/Goals';
-import Achievements from './components/Achievements';
-import Leaderboard from './components/leaderboard/Leaderboard';
-import CreateGoals from './components/CreateGoals'
-import ListGoals from './components/ListGoals';
-import GoalsSection from './components/GoalsSection';
+import Achievements from '../../components/RankingPageComponents/Achievements';
+import Leaderboard from '../../components/RankingPageComponents/Leaderboard';
+import CreateGoals from '../../components/RankingPageComponents/CreateGoals/CreateGoals'
+import ListGoals from '../../components/RankingPageComponents/ListGoals';
+import GoalsSection from '../../components/RankingPageComponents/GoalsSection';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 
-function App() {
+function RankingPage() {
   const [goals, setGoals] = useState([]);
 
   console.log('goals', goals);
@@ -45,4 +47,4 @@ function App() {
   );
 }
 
-export default App;
+export default RankingPage;

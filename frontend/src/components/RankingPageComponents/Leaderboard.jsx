@@ -1,11 +1,10 @@
 import trophy from '../../assets/rankingEDesafios.png'
-import profileWill from '../../assets/william.png'
-import imgAluno2 from '../../assets/Pictures/bruno.jpeg'
+import profileWill from '../../assets/Pictures/william.png'
+import imgAluno2 from '../../assets/Pictures/bruno.png'
 import imgAluno3 from '../../assets/Pictures/edson.jpeg'
-import imgAluno4 from '../../assets/Pictures/marcus.jpeg'
 import imgAluno5 from '../../assets/Pictures/mario.jpeg'
 import imgAluno6 from '../../assets/Pictures/joniclei.jpeg'
-import imgUser from '../../assets/Pictures/user.png'
+import imgUser from '../../assets/Pictures/userImg.png'
 import Aluno from './Aluno'
 
 const Leaderboard = () => {
@@ -41,7 +40,7 @@ const Leaderboard = () => {
         level= '2'
         exp= '20' />
 
-        <Aluno profileImg= {imgAluno4}
+        <Aluno profileImg= {imgUser}
         name= 'Marcus'
         trainer= 'Ivan'
         level= '1'
