@@ -1,0 +1,7 @@
+npm install react-scripts --save
+npm install styled-components
+npm install react-icons
+
+Caso dê erro no EsLint, execute estes dois comandos em ordem:
+npm dedupe
+npm install
