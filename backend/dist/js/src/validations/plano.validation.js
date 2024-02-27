@@ -23,14 +23,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userValidation = void 0;
+exports.planoValidation = void 0;
 const yup = __importStar(require("yup"));
-exports.userValidation = yup.object({
-    tipo_user: yup.string().required(),
-    senha: yup.string().required().min(6),
-    cpf: yup.string().required(),
-    email: yup.string().required().email(),
-    nome: yup.string().required(),
-    id_endereco: yup.string().required(),
-    userimg: yup.string().nullable(),
+exports.planoValidation = yup.object({
+    tipo_plano: yup.string().required(),
+    valor: yup.number().required(),
+    id_admin: yup.number().required(),
+    id_aluno: yup.number().required(),
+    data_inicio: yup.date().required(),
+    data_termino: yup.date().required(),
+    recursivo: yup.boolean().required(),
+    qtd_recursivo: yup.string().required()
 });

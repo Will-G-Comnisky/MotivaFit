@@ -23,14 +23,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userValidation = void 0;
+exports.telefoneValidation = void 0;
 const yup = __importStar(require("yup"));
-exports.userValidation = yup.object({
-    tipo_user: yup.string().required(),
-    senha: yup.string().required().min(6),
-    cpf: yup.string().required(),
-    email: yup.string().required().email(),
-    nome: yup.string().required(),
-    id_endereco: yup.string().required(),
-    userimg: yup.string().nullable(),
+exports.telefoneValidation = yup.object({
+    ddd: yup.string().required(),
+    numero: yup.string().required(),
+    id_usuario: yup.number().required()
 });

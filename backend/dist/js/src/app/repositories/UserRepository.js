@@ -92,6 +92,36 @@ class UserRepository {
             });
             return;
         });
+        this.findByCpf = (cpf) => __awaiter(this, void 0, void 0, function* () {
+            const user = yield prisma_1.prisma.usuario.findFirst({
+                where: {
+                    OR: [
+                        { cpf: cpf },
+                    ],
+                },
+            });
+            return user;
+        });
+        this.findByEmail = (email) => __awaiter(this, void 0, void 0, function* () {
+            const user = yield prisma_1.prisma.usuario.findFirst({
+                where: {
+                    OR: [
+                        { email: email },
+                    ],
+                },
+            });
+            return user;
+        });
+        this.findByUserId = (user_id) => __awaiter(this, void 0, void 0, function* () {
+            const user = yield prisma_1.prisma.usuario.findFirst({
+                where: {
+                    OR: [
+                        { user_id: user_id },
+                    ],
+                },
+            });
+            return user;
+        });
     }
 }
 ;

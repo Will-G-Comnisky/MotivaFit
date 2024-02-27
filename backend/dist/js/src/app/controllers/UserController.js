@@ -22,6 +22,19 @@ exports.UserController = {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield user_validation_1.userValidation.validate(req.body);
+                // Verificar se o CPF ou e-mail já estão em uso
+                const existingUserCpf = yield UserRepository_1.default.findByCpf(req.body.cpf);
+                const existingUserEmail = yield UserRepository_1.default.findByEmail(req.body.email);
+                const existingUserId = yield UserRepository_1.default.findByUserId(req.body.user_id);
+                if (existingUserCpf) {
+                    return res.status(http_status_codes_1.StatusCodes.BAD_REQUEST).send('Este CPF já está em uso');
+                }
+                if (existingUserEmail) {
+                    return res.status(http_status_codes_1.StatusCodes.BAD_REQUEST).send('Este e-mail já está em uso');
+                }
+                if (existingUserId) {
+                    return res.status(http_status_codes_1.StatusCodes.BAD_REQUEST).send('Este user_id já está em uso');
+                }
                 const senhaHash = yield bcrypt_1.default.hash(req.body.senha, 10);
                 req.body.senha = senhaHash;
                 const user = yield UserRepository_1.default.create(req.body);
@@ -79,19 +92,33 @@ exports.UserController = {
                 res.status(http_status_codes_1.StatusCodes.BAD_REQUEST).send(error);
             }
         });
-    }
+    },
+    getByCpf(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const user = yield UserRepository_1.default.findByCpf(req.params.cpf);
+                if (!user) {
+                    return res.status(http_status_codes_1.StatusCodes.NOT_FOUND).send({ message: 'Usuário não encontrado' });
+                }
+                res.status(http_status_codes_1.StatusCodes.OK).json(user);
+            }
+            catch (error) {
+                res.status(http_status_codes_1.StatusCodes.INTERNAL_SERVER_ERROR).json({ message: 'Erro ao buscar usuário por CPF', error });
+            }
+        });
+    },
+    getByEmail(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const user = yield UserRepository_1.default.findByEmail(req.params.email);
+                if (!user) {
+                    return res.status(http_status_codes_1.StatusCodes.NOT_FOUND).send({ message: 'Usuário não encontrado' });
+                }
+                res.status(http_status_codes_1.StatusCodes.OK).json(user);
+            }
+            catch (error) {
+                res.status(http_status_codes_1.StatusCodes.INTERNAL_SERVER_ERROR).json({ message: 'Erro ao buscar usuário por email', error });
+            }
+        });
+    },
 };
-/*
-  async getUser(req: Request, res: Response): Promise<void> {
-    try {
-      const users = await UserRepository.getUsers();
-      res.json(users);
-    } catch (error) {
-      res.status(StatusCodes.BAD_GATEWAY).json({ error: 'Erro ao consultar usuários'});
-    }
-  },
-
-  async getUsersById(req: Request, res: Response): Promise<void> {
-    
-  }
-*/
