@@ -1,6 +1,6 @@
 import { planoValidation } from "../../validations/plano.validation";
 import { StatusCodes } from "http-status-codes";
-import { request, Request, Response } from "express";
+import { Request, Response } from "express";
 import PlanoRepository from "../repositories/PlanoRepository";
 
 export const PlanoController = {
