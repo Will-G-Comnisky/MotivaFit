@@ -76,22 +76,33 @@ export const UserController = {
     } catch (error) {
       res.status(StatusCodes.BAD_REQUEST).send(error);
     }
-  }
-}
+  },
 
-/*
-  async getUser(req: Request, res: Response): Promise<void> {
+  async getByCpf(req: Request, res: Response) {
     try {
-      const users = await UserRepository.getUsers();
-      res.json(users);
+      const user = await UserRepository.findByCpf(req.params.cpf);
+      if (!user) {
+        return res.status(StatusCodes.NOT_FOUND).send({ message: 'Usuário não encontrado' });
+      }
+      res.status(StatusCodes.OK).json(user);
+
     } catch (error) {
-      res.status(StatusCodes.BAD_GATEWAY).json({ error: 'Erro ao consultar usuários'});
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: 'Erro ao buscar usuário por CPF', error });
     }
   },
 
-  async getUsersById(req: Request, res: Response): Promise<void> {
-    
-  }
-*/
+  async getByEmail(req: Request, res: Response) {
+    try {
+      const user = await UserRepository.findByEmail(req.params.email);
+      if (!user) {
+        return res.status(StatusCodes.NOT_FOUND).send({ message: 'Usuário não encontrado' });
+      }
+      res.status(StatusCodes.OK).json(user);
+
+    } catch (error) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: 'Erro ao buscar usuário por email', error });
+    }
+  },
+};
 
 

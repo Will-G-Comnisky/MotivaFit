@@ -8,6 +8,7 @@ const telefoneRoutes = (router: Router) => {
   router.get('/telefone/:id', verifyToken, TelefoneController.getTelefoneById);
   router.put('/telefone/:id', verifyToken, TelefoneController.updateTelefone);
   router.delete('/telefone/:id', verifyToken, TelefoneController.deleteTelefone);
+  router.get('/telefone/user/:userId', TelefoneController.getTelefonesByUserId);
 };
 
 export default telefoneRoutes;

@@ -66,6 +66,21 @@ class TelefoneRepository {
     });
     return
   };
+
+  getTelefoneByUserId = async (userId: number): Promise<Telefone[]> => {
+    const telefones = await prisma.telefone.findMany({
+      where: {
+        id_usuario: userId
+      },
+      select: {
+        id_telefone: true,
+        ddd: true,
+        numero: true,
+        id_usuario: true
+      }
+    });
+    return telefones;
+  };
 };
 
 export default new TelefoneRepository();

@@ -6,6 +6,7 @@ interface Aluno {
   nivel: number;
   id_usuario: number;
   id_admin: number;
+  id_plano: number;
 }
 
 export default Aluno;

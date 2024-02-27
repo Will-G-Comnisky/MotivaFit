@@ -7,4 +7,5 @@ export const alunoValidation = yup.object({
   nivel: yup.number().required(),   
   id_usuario: yup.number().required(),  
   id_admin: yup.number().required(),
+  id_plano: yup.number().required(),
 });

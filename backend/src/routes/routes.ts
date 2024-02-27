@@ -6,6 +6,7 @@ import alunoRoutes from "./aluno.routes";
 import adminRoutes from "./admin.routes";
 import avaliacaoRoutes from "./avaliacao.routes";
 import telefoneRoutes from "./telefone.routes";
+import planoRoutes from "./plano.routes";
 
 const routes = (app: Router) => {
     userRoutes(app);
@@ -15,6 +16,7 @@ const routes = (app: Router) => {
     adminRoutes(app);
     avaliacaoRoutes(app);
     telefoneRoutes(app);
+    planoRoutes(app);
 }
 
 export default routes;

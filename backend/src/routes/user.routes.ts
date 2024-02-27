@@ -9,6 +9,8 @@ const userRoutes = (router: Router) => {
   router.get("/user/:id", verifyToken, authorize, UserController.getUserById);
   router.put("/user/:id", verifyToken, authorize, UserController.updateUser);
   router.delete("/user/:id", verifyToken, authorize, UserController.deleteUser);
+  router.get("/user/cpf/:cpf", verifyToken, authorize, UserController.getByCpf)
+  router.get("/user/email/:email", verifyToken, authorize, UserController.getByEmail)
 };
 
 export default userRoutes;

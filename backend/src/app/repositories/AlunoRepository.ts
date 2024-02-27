@@ -78,7 +78,7 @@ class AlunoRepository {
     return;
   };
 
-  getAllAlunosByAdminId = async(adminId: number): Promise<Aluno[]> => {
+  getAllAlunosByAdminId = async(adminId: number) => {
     const alunos = await prisma.aluno.findMany({
       where: {
         id_admin: adminId,
@@ -89,7 +89,8 @@ class AlunoRepository {
         }
       },
       include: {
-        usuario: true
+        usuario: true,
+        plano: true
       }
     });
     return alunos;

@@ -59,5 +59,17 @@ export const TelefoneController = {
     } catch (error) {
       res.status(StatusCodes.BAD_REQUEST).send({ message: error });
     }
-  }
+  },
+
+  async getTelefonesByUserId(req: Request, res: Response): Promise<void> {
+    try {
+      const userId = parseInt(req.params.userId); // Captura o id_usuario dos parâmetros da rota
+      const telefones = await TelefoneRepository.getTelefoneByUserId(userId);
+      res.status(StatusCodes.OK).send(telefones);
+      
+    } catch (error) {
+      console.error('Erro ao buscar telefones por id_usuario:', error);
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({ message: 'Erro ao buscar telefones por id_usuario.' });
+    }
+  },
 }
