@@ -1,5 +1,7 @@
 import { Router, Request, Response } from 'express';
-import { Controller } from './controllers/controller';
+import { ControllerExercicio } from './controllers/controllerExercicio';
+import { ControllerTreino } from './controllers/controllerTreino';
+import { ControllerRotina } from './controllers/controllerRotina';
 
 
 
@@ -10,25 +12,28 @@ router.get("/", (req: Request, res: Response) => {
 });
 
 
+// Exercicios
+router.get("/exercicio/:id", ControllerExercicio.getExercicio);
+router.get("/exercicios", ControllerExercicio.getExercicios);
+router.post("/exercicio", ControllerExercicio.postExercicio);
+router.put("/altexercicio", ControllerExercicio.putExercicio);
+router.delete("/delexercicio/:id", ControllerExercicio.deleteExercicio);
 
-router.get("/exercicio/:id", Controller.getExercicio);
 
-router.get("/exercicios", Controller.getExercicios);
+// Treino
+router.get ("/treino/:id", ControllerTreino.getTreino);
+router.get("/treinos", ControllerTreino.getTreinos);
+router.post("/treino", ControllerTreino.postTreino);
+router.put("/alttreino", ControllerTreino.putTreino);
+router.delete("/deltreino/:id", ControllerTreino.deleteTreino);
 
 
-router.get ("/treino/:id", Controller.getTreino);
+//Rotina
 
-router.post("/treino", Controller.postTreino);
-
-router.put("/alttreino", Controller.putTreino);
-
-router.delete("/deltreino/:id", Controller.deleteTreino);
-
-//Rotina de treino
-
-router.get("/rotina/:id", Controller.getRotina);
-
-router.post("/rotina", Controller.postRotina);
-
+router.get("/rotina/:id", ControllerRotina.getRotina);
+router.get("/rotinas", ControllerRotina.getRotinas);
+router.post("/rotina", ControllerRotina.postRotina);
+router.put("/altrotina", ControllerRotina.putRotina);
+router.delete("/delrotina/:id", ControllerRotina.deleteRotina);
 
 export default router;
