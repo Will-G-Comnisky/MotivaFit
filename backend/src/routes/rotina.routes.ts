@@ -3,8 +3,8 @@ import { RotinaTreinoController } from "../app/controllers/RotinaTreinoControlle
 
 const rotinaTreinoRoutes = (router: Router) => {
   // Exercicios
-  router.get("exercicios", RotinaTreinoController.getExercicios);
-  router.get("exercicio/:id", RotinaTreinoController.getExercicio);
+  router.get("/exercicios", RotinaTreinoController.getExercicios);
+  router.get("/exercicio/:id", RotinaTreinoController.getExercicio);
   
   // Treinos
   router.get("/treinos", RotinaTreinoController.getTreinos);
