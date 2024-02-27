@@ -6,7 +6,7 @@ import bcrypt from "bcrypt"
 
 export const authenticate = async (req: Request, res: Response) => {
   try {
-    const { user_id, tipo_user, senha} = req.body;
+    const { user_id, senha} = req.body;
 
     if(!(user_id && senha)) {
       return res.status(StatusCodes.BAD_REQUEST).send({ message: "Usuário e senha devem ser preenchidos"});
