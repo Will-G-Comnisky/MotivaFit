@@ -1,0 +1,102 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, rgb(2 6 23), rgb(15 23 42));
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: rgb(226 232 240);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  width: 20rem;
+  height: 25rem;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: rgb(74 4 78);
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-container input[type="submit"] {
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: rgb(74 4 78);
+  box-shadow: 0.1rem 0.1rem 0.4rem rgba(74, 4, 78, 0.377);
+  color: white;
+  cursor: pointer;
+}
+
+.login-container a {
+  margin-top: 10px;
+  color: #2a5298;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 4em;
+  width: 60%;
+  max-height: 80%;
+  overflow-y: scroll;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  text-align: left;
+}
+
+.close-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: rgb(74 4 78);
+  color: white;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #113d8a;
+}
+
+.terms-link {
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+  background: rgb(74 4 78);
+  box-shadow: 0.1rem 0.1rem 0.4rem rgba(74, 4, 78, 0.377);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.terms-link:hover {
+  background-color: #113d8a;
+}
