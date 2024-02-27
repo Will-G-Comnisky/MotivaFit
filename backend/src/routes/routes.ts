@@ -7,6 +7,7 @@ import adminRoutes from "./admin.routes";
 import avaliacaoRoutes from "./avaliacao.routes";
 import telefoneRoutes from "./telefone.routes";
 import planoRoutes from "./plano.routes";
+import rotinaTreinoRoutes from "./rotina.routes";
 
 const routes = (app: Router) => {
     userRoutes(app);
@@ -17,6 +18,7 @@ const routes = (app: Router) => {
     avaliacaoRoutes(app);
     telefoneRoutes(app);
     planoRoutes(app);
+    rotinaTreinoRoutes(app);
 }
 
 export default routes;

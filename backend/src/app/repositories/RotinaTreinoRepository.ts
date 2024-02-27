@@ -1,22 +1,31 @@
 import { prisma } from '../database/prisma';
 
 class RotinaTreino {
-
   async getExercicioById(id: number) {
-    return await prisma.exercicio.findUnique({
+    const exercicio = await prisma.exercicio.findUnique({
       where: { id_exercicio: id }
     });
+    return exercicio
   }
 
   async getExercicios() {
-    return await prisma.exercicio.findMany();
+    const exercicios = await prisma.exercicio.findMany();
+    return exercicios
   }
 
-  async getTreino(id: number) {
-    return await prisma.treino.findUnique({
+  async getTreino() {
+    const treino =  await prisma.treino.findMany({
+      include: { treino_exercicio: { include: { exercicio: true } } }
+    });
+    return treino
+  }
+
+  async getTreinoById(id: number) {
+    const treino =  await prisma.treino.findUnique({
       where: { id_treino: id },
       include: { treino_exercicio: { include: { exercicio: true } } }
     });
+    return treino
   }
 
 
@@ -86,8 +95,29 @@ class RotinaTreino {
 
 
 
-  async getRotina(id: number) {
-    return await prisma.rotina.findUnique({
+  async getRotina() {
+    const rotina = await prisma.rotina.findMany({
+      include: {
+        rotina_treino: {
+          include: {
+            treino: {
+              include: {
+                treino_exercicio: {
+                  include: {
+                    exercicio: true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    });
+    return rotina;
+  }
+
+  async getRotinaById(id: number) {
+    const rotina = await prisma.rotina.findUnique({
       where: { id_rotina: id },
       include: {
         rotina_treino: {
@@ -105,6 +135,7 @@ class RotinaTreino {
         }
       }
     });
+    return rotina;
   }
 
 
@@ -163,6 +194,7 @@ class RotinaTreino {
     const deletedRotinaTreino = await prisma.rotina_treino.deleteMany({
       where: { id_rotina: id }
     });
+  
 
 
     const deletedRotina = await prisma.rotina.delete({
