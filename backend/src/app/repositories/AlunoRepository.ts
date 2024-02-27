@@ -84,7 +84,7 @@ class AlunoRepository {
         id_admin: adminId,
         usuario: {
           tipo_user: {
-            in: ["aluno"] // Filtra os usuários do tipo "aluno" ou "false"
+            in: ["aluno"] // Filtra os usuários do tipo "aluno"
           }
         }
       },
@@ -94,7 +94,45 @@ class AlunoRepository {
       }
     });
     return alunos;
+  };
+/*
+  // obter os dados do próprio aluno
+  getOwnUserData = async (alunoId: number) => {
+    const aluno = await prisma.aluno.findUnique({
+      where: {
+        id_aluno: alunoId
+      },
+      include: {
+        admin: true,
+        usuario: {
+          include: {
+            endereco: true
+          }
+        },
+      }
+    });
+    return aluno;
   }
+  
+  // Atualizar os dados do próprio aluno
+  updateOwnUserData = async (alunoId: number, data: Aluno) => {
+    const updatedAluno = await prisma.aluno.update({
+      where: {
+        id_aluno: alunoId
+      },
+      data,
+      include: {
+        admin: true,
+        usuario: {
+          include: {
+            endereco: true
+          }
+        },
+      }
+    });
+    return updatedAluno;
+  }
+  */
 };
 
 export default new AlunoRepository();

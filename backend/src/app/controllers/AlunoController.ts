@@ -96,6 +96,6 @@ export const AlunoController = {
       console.error('Erro ao buscar alunos:', error);
       res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Erro ao buscar alunos');
     }
-  }
-}
+  },
+};
 

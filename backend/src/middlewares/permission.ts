@@ -29,5 +29,3 @@ export const authorize = (req: Request, res: Response, next: NextFunction) => {
 
 
 };
-  /*
-  */
