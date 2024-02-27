@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Motiva Fit App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um aplicativo web desenvolvido como parte do programa de empregabilidade Entra21. O aplicativo é voltado para o gerenciamento de personal trainers com seus alunos, permitindo que eles definam treinos personalizados e a agenda de treinamento dos alunos. O aplicativo conta com um diferencial de gameficação para tentar solucionar os problemas de evasão de alunos em academias e treinamentos.
 
-## Available Scripts
+## Tecnologias Utilizadas
 
-In the project directory, you can run:
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-### `npm start`
+- HTML
+- CSS
+- JavaScript
+- React
+- NodeJS
+- Prisma
+- PostgreSQL
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Equipe de Desenvolvimento
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Alunos responsáveis pelo projeto:
 
-### `npm test`
+- Bruno
+- Edson
+- Joniclei
+- Marcus
+- Mario
+- William
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Instalação
 
-### `npm run build`
+Siga as instruções abaixo para instalar as dependências necessárias:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone este repositório.
+2. Navegue até a pasta do projeto.
+3. Instale as dependências com `npm install`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Pacotes Necessários
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Este projeto utiliza os seguintes pacotes:
 
-### `npm run eject`
+- `react-router-dom`: Para gerenciar as rotas do aplicativo.
+- `axios`: Para fazer solicitações HTTP.
+- `bcrypt`: Para criptografar senhas.
+- `styled-components`: Para estilizar os componentes React.
+- `react-icons`: Para gerenciar os ícones do aplicativo.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Você pode instalar todos esses pacotes com os seguintes comandos:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm install react-router-dom axios bcrypt styled-components react-icons
+```
