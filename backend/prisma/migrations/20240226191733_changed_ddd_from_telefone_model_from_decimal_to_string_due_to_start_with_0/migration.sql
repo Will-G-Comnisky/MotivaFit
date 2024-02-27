@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "telefone" ALTER COLUMN "ddd" SET DATA TYPE VARCHAR(12);
