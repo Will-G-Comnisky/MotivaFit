@@ -6,18 +6,6 @@ import repositorie from '../repositories/respositories';
 const repositories = new repositorie();
 
 export class Controller {
-  static async getLogin(req: Request, res: Response) {
-    const { user, password } = req.body;
-
-    const resultUser = getUserByName(user);
-    if (!resultUser) {
-      return res.status(StatusCodes.UNAUTHORIZED).send({ 'message': 'User not found' });
-    }
-    if (resultUser.password !== password) {
-      return res.status(StatusCodes.UNAUTHORIZED).send({ 'message': 'Password mismatch' });
-    }
-    res.status(StatusCodes.ACCEPTED).send({ 'message': 'Você foi logado com sucesso' });
-  }
 
   static async getExercicio(req: Request, res: Response) {
     const treinoid = parseInt(req.params.id);
@@ -27,6 +15,16 @@ export class Controller {
     } catch (error) {
       console.error('Erro ao buscar treino:', error);
       res.status(500).json({ error: 'Erro ao buscar treino' });
+    }
+  }
+
+  static async getExercicios(req: Request, res: Response) {
+    try {
+      const exercicios = await repositories.getExercicios();
+      res.json(exercicios);
+    } catch (error) {
+      console.error('Erro ao buscar exercicios:', error);
+      res.status(500).json({ error: 'Erro ao buscar exercicios' });
     }
   }
 

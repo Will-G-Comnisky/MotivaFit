@@ -9,10 +9,11 @@ router.get("/", (req: Request, res: Response) => {
     return res.send('Welcome!')
 });
 
-router.get("/login", Controller.getLogin);
 
 
 router.get("/exercicio/:id", Controller.getExercicio);
+
+router.get("/exercicios", Controller.getExercicios);
 
 
 router.get ("/treino/:id", Controller.getTreino);

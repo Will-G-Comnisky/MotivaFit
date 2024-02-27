@@ -8,12 +8,18 @@ export default class RotinaTreino {
     });
   }
 
+  async getExercicios() {
+    return await prisma.exercicio.findMany();
+  }
+
   async getTreino(id: number) {
     return await prisma.treino.findUnique({
       where: { id_treino: id },
       include: { treino_exercicio: { include: { exercicio: true } } }
     });
   }
+
+
 
   async postTreino(nome: string, exercicios: { id_exercicio: number, qtd_serie: number, qtd_rep: number, qtd_carga: string, comentario?: string }[]) {
     const createdTreino = await prisma.treino.create({
@@ -75,12 +81,31 @@ export default class RotinaTreino {
 
   // Rotina de rotina
 
+
+
   async getRotina(id: number) {
     return await prisma.rotina.findUnique({
       where: { id_rotina: id },
-      include: { rotina_treino: { include: { treino: true } } }
+      include: {
+        rotina_treino: {
+          include: {
+            treino: {
+              include: {
+                treino_exercicio: {
+                  include: {
+                    exercicio: true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     });
   }
+
+
+
 
   async postRotina(nome: string, usuario: { id_usuario: number }, treinos: { id_treino: number }[]) {
     const createdRotina = await prisma.rotina.create({
@@ -98,7 +123,9 @@ export default class RotinaTreino {
         }
       },
       include: {
-        rotina_treino: { include: { treino: true } }
+        rotina_treino: {
+          include: { treino: true }
+        }
       }
     });
   }
@@ -127,17 +154,17 @@ export default class RotinaTreino {
   }
 
   async deleteRotina(id: number) {
-      // primeiro tive que deletar todos os registros com id_rotina = id
-      const deletedRotinaTreino = await prisma.rotina_treino.deleteMany({
-        where: { id_rotina: id }
-      });
+    // primeiro tive que deletar todos os registros com id_rotina = id
+    const deletedRotinaTreino = await prisma.rotina_treino.deleteMany({
+      where: { id_rotina: id }
+    });
 
-      const deletedRotina = await prisma.rotina.delete({
-        where: { id_rotina: id },
-        include: {
-          rotina_treino: { include: { treino: true } }
-        }
-      });
-    }
+    const deletedRotina = await prisma.rotina.delete({
+      where: { id_rotina: id },
+      include: {
+        rotina_treino: { include: { treino: true } }
+      }
+    });
+  }
 
 }
