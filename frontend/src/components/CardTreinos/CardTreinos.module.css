@@ -12,20 +12,22 @@
     font-family: Arial, Helvetica, sans-serif;
 
     display: grid;
-    grid-template-columns: 2fr 14fr 20fr 1fr;
+    grid-template-columns: 2fr 14fr 18fr 2fr;
 }
 
 #idTreinoCard:hover{
     cursor: pointer;
 }
 
+#idAlunoImgBackground{
+    display: grid;
+    place-items: center;
+}
+
 
 #idTreinoImg{
-    width: 2.5rem;
-    border-radius: 2rem;
-    padding-top: 0.25rem;
-    padding-left: 1rem;
-    margin: auto;
+    width: 3rem;
+    margin-left: 1rem;
 }
 
 #idTreinoNome{
@@ -42,13 +44,42 @@
     font-size: 1.1rem
 }
 
-#idInfoIcon{
-    width: 2.1rem;
-    padding-top: 0.45rem;
-    margin-right: 1rem;
+#idImg{
+    width: 2rem;
+    padding: 0.2rem;
 }
 
-#idImg{
-    width: 2.5rem;
-    margin-top: 0.2rem;
+
+.clClosedImg{
+    transform: rotate(270deg);
+}
+
+div ul{
+    display: none;
+}
+
+div ul.clOpened{
+    display: grid;
+    margin: auto;
+    width: 92%;
+    background-color: white;
+    border-radius: 0 0 1rem 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+}
+
+div ul.clOpened li{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+}
+
+.clOpenedImg{
+    transform: rotate(90deg);
+}
+
+#idAtividadesList{
+}
+
+.clAtividade{
+
 }

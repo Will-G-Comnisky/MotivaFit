@@ -5,6 +5,7 @@ import NavBar from '../NavBar/NavBar';
 import Banner from '../BannerAluno/BannerAluno';
 import CardTreinos from '../CardTreinos/CardTreinos';
 import BotaoLink from '../BotaoLink/BotaoLink'
+import BotaoNav from '../BotaoNav/BotaoNav'
 
 import {TreinosList} from "../../data/TreinosList";
 
@@ -21,7 +22,7 @@ import workoutImg from "../../assets/gym.png"
 import alunoImg from "../../assets/Aluno.png"
 
 // --- User Info Resumo ---
-var userName = "What?!"
+var user = JSON.parse(localStorage.getItem("user"));
 var msgBom
 var userRanking = "Ouro"
 var numMetaConcluida = 1;
@@ -67,7 +68,7 @@ const Treinos = ({TreinosList}) => (
       {/* ----- Banner ----- */}
       <Banner userImg = {alunoImg}
               msgBom = {msgBom}
-              userName = {userName}
+              userName = {user.fullName}
               numMetaConcluida = {numMetaConcluida}
               userRanking = {userRanking}
       />
@@ -77,13 +78,13 @@ const Treinos = ({TreinosList}) => (
                     icon={agendamentos}
                     link='https://workspace.google.com/intl/pt-BR/products/calendar/'
         />
-        <BotaoLink nome="Financeiro"
+        <BotaoNav nome="Financeiro"
                     icon={financeiro}
                     link='../../components/FinanceiroPage/FinanceiroPage'
         />
-        <BotaoLink nome="Ranking"
+        <BotaoNav nome="Ranking"
                     icon={ranking}
-                    link='https://workspace.google.com/intl/pt-BR/products/calendar/'
+                    link='/RankingPage'
         />
       </div>
 

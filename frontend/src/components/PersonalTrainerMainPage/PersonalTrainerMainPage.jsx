@@ -4,6 +4,8 @@ import React, { useState } from "react";
 
 // ----- Components -----
 import BotaoLinks from "../BotaoLink/BotaoLink";
+import BotaoCadastro from '../BotaoCadastro/BotaoCadastro';
+import BotaoNav from '../BotaoNav/BotaoNav'
 import NavBar from "../NavBar/NavBar";
 import Banner from "../Banner/Banner";
 import CardAluno from "../CardAluno/CardAluno";
@@ -30,10 +32,8 @@ import lupa from "../../assets/lupa.png";
 import filtro from "../../assets/filtro.png";
 // -- Treinador --
 import Treinador from '../../assets/Pictures/Treinador.png'
-import BotaoCadastro from '../BotaoCadastro/BotaoCadastro';
+
 // -- Alunos --
-
-
 
 // ----- Variaveis Temporarias -----
 // --- User Info Resumo ---
@@ -97,27 +97,27 @@ function PersonalTrainerMainPage(props) {
       <div id={styles.idBotoesPaginaPrincipal}>
         {/* Botao Novo treino */}
 
-        <BotaoLinks nome = "Meus Treinos"
+        <BotaoNav nome = "Meus Treinos"
                     icon = {meusTreinos}
                     link = "/MeusTreinosPage"
         />
 
         {/* Botao Meus treinos */}
-        <BotaoLinks nome ="Ranking"
+        <BotaoNav nome ="Ranking"
                     icon ={ranking}
                     link = "/RankingPage"
 
         />
 
         {/* Botao Agendamentos */}
-        <BotaoLinks
+         <BotaoLinks
           nome="Agendamentos"
           icon={agendamentos}
           link="https://workspace.google.com/intl/pt-BR/products/calendar/"
-        />
+        /> 
 
         {/* Botao Financeiro */}
-        <BotaoLinks
+        <BotaoNav
           nome="Financeiro"
           icon={financeiro}
           link="../../FinanceiroPage"
