@@ -17,23 +17,21 @@ import { alunoList } from "../../data/alunoList";
 import logo from "../../assets/logo.png";
 
 // -- Botoes --
-import meusTreinos from "../../assets/meusTreinos.png"
-import ranking from "../../assets/rankingEDesafios.png"
-import agendamentos from "../../assets/agendamento.png"
-import financeiro from "../../assets/financeiro.png"
-import novo from "../../assets/novo.png"
-import botaoX from "../../assets/BotaoX.png"
+import meusTreinos from "../../assets/meusTreinos.png";
+import ranking from "../../assets/rankingEDesafios.png";
+import agendamentos from "../../assets/agendamento.png";
+import financeiro from "../../assets/financeiro.png";
+import novo from "../../assets/novo.png";
+import botaoX from "../../assets/BotaoX.png";
 // -- Banner --
 
 // -- Lista Alunos --
 import lupa from "../../assets/lupa.png";
 import filtro from "../../assets/filtro.png";
 // -- Treinador --
-import Treinador from '../../assets/Pictures/Treinador.png'
-import BotaoCadastro from '../BotaoCadastro/BotaoCadastro';
+import Treinador from "../../assets/Pictures/Treinador.png";
+import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
 // -- Alunos --
-
-
 
 // ----- Variaveis Temporarias -----
 // --- User Info Resumo ---
@@ -97,17 +95,14 @@ function PersonalTrainerMainPage(props) {
       <div id={styles.idBotoesPaginaPrincipal}>
         {/* Botao Novo treino */}
 
-        <BotaoLinks nome = "Meus Treinos"
-                    icon = {meusTreinos}
-                    link = "/MeusTreinosPage"
+        <BotaoLinks
+          nome="Meus Treinos"
+          icon={meusTreinos}
+          link="/MeusTreinosPage"
         />
 
         {/* Botao Meus treinos */}
-        <BotaoLinks nome ="Ranking"
-                    icon ={ranking}
-                    link = "/RankingPage"
-
-        />
+        <BotaoLinks nome="Ranking" icon={ranking} link="/RankingPage" />
 
         {/* Botao Agendamentos */}
         <BotaoLinks
@@ -126,40 +121,59 @@ function PersonalTrainerMainPage(props) {
 
       {/* Botao Cadastrar Novo Aluno */}
       <div id={styles.idCadastrarAluno}>
-        <BotaoCadastro nome ="Cadastrar Aluno"
-                    icon ={novo}
-                    link = "#"
-                    buttonFunction={HandleCadastro}
+        <BotaoCadastro
+          nome="Cadastrar Aluno"
+          icon={novo}
+          link="#"
+          buttonFunction={HandleCadastro}
         />
       </div>
-      
 
-    {showTerms && (
-      <div id={styles.idCadastroAlnuo} className={styles.clCreateAccountContainer}>
-        <form>
-        <div id={styles.idCloseNav}>
-          <div id={styles.idFiller}></div>
-          <button id={styles.idCloseButton} onClick={() => setShowTerms(false)}><img src={botaoX}/></button>
+      {showTerms && (
+        <div
+          id={styles.idCadastroAlnuo}
+          className={styles.clCreateAccountContainer}
+        >
+          <form>
+            <div id={styles.idCloseNav}>
+              <div id={styles.idFiller}></div>
+              <button
+                id={styles.idCloseButton}
+                onClick={() => setShowTerms(false)}
+              >
+                <img src={botaoX} alt="botaoX" />
+              </button>
+            </div>
+            <h2>Cadastre um Aluno</h2>
+            <input type="text" placeholder="Nome Completo" />
+            <input type="text" placeholder="Nome de Usuário" />
+            <input type="email" placeholder="Email" />
+            <input type="text" placeholder="Senha" />
+            <input type="text" placeholder="CPF" />
+            <input
+              type="number"
+              placeholder="Altura em metros"
+              step="0.01"
+              min="0"
+            />
+            <select>
+              <option value="">Nível</option>
+              <option value="iniciante">Iniciante</option>
+              <option value="intermediario">Intermediário</option>
+              <option value="avancado">Avançado</option>
+            </select>
+            <select>
+              <option value="">Sexo</option>
+              <option value="masculino">Masculino</option>
+              <option value="feminino">Feminino</option>
+              <option value="outro">Outro</option>
+            </select>
+            <label>Data de Nascimento:</label>
+            <input type="date" />
+            <input type="submit" value="Cadastrar Aluno" />
+          </form>
         </div>
-          <h2>Cadastre um Aluno</h2>
-          <input type="text" placeholder="Nome Completo" />
-          <input type="email" placeholder="Email" />
-          <input type="text" placeholder="Senha" />
-          <input type="text" placeholder="CPF" />
-          <select>
-            <option value="">Sexo</option>
-            <option value="masculino">Masculino</option>
-            <option value="feminino">Feminino</option>
-            <option value="outro">Outro</option>
-          </select>
-          <label>Data de Nascimento:</label>
-          <input type="date" />
-          <input type="submit" value="Cadastrar Aluno" />
-      
-        </form>
-      </div>
-    )}
-
+      )}
 
       <div id={styles.idListaAluno}>
         <div id={styles.idAlunosNavBar}>

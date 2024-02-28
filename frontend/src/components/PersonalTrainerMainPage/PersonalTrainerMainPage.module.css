@@ -3,166 +3,157 @@
 /* ----- Pagina Principal ----- */
 
 #idMain {
-    background-color: rgb(15 23 42);
-    height: 100%;
-    padding-bottom: 1rem;
-    
+  background-color: rgb(15 23 42);
+  height: 100%;
+  padding-bottom: 1rem;
 }
-
-
 
 /* ----- Botôes ----- */
 
-#idBotoesPaginaPrincipal{
-    margin: auto;
-    display: grid;
-    width: 90%;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    
+#idBotoesPaginaPrincipal {
+  margin: auto;
+  display: grid;
+  width: 90%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-#idCadastrarAluno{
-    padding-top:1.5rem ;
-    margin: auto;
-    width: 90%;
+#idCadastrarAluno {
+  padding-top: 1.5rem;
+  margin: auto;
+  width: 90%;
 }
 
-#idCadastroAluno{
-    background-color: black;
+#idCadastroAluno {
+  background-color: black;
 }
 
 /*----- Cadastro de Alunos -------*/
 
 #idCadastroAlnuo {
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.596);
-    height: 100%;
-    width: 100%;
-    display: grid;
-    place-items: center;
-    top: 0;
-    left: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.596);
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  top: 0;
+  left: 0;
 }
 
 #idCadastroAlnuo input,
 #idCadastroAlnuo select {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid rgb(112 26 117);
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(112 26 117);
 }
 
 #idCadastroAlnuo input[type="submit"] {
-    margin-top: 20px;
-    color: white;
-    background-color: rgb(112 26 117);
-    cursor: pointer;
+  margin-top: 20px;
+  color: white;
+  background-color: rgb(112 26 117);
+  cursor: pointer;
 }
 
 #idCloseNav {
-    display: grid;
-    grid-template-columns: 20fr 1fr;
-    place-items: center;
+  display: grid;
+  grid-template-columns: 20fr 1fr;
+  place-items: center;
 }
-  
-#idCloseButton{
-    background: none;
-    width: 1.6rem;
 
+#idCloseButton {
+  background: none;
+  width: 1.6rem;
 }
 
 /* CreateAccountPage.css */
 .clCreateAccountContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .clCreateAccountContainer form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: white;
 }
 
 .clCreateAccountContainer h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    color: rgb(74 4 78);
+  margin-bottom: 20px;
+  text-align: center;
+  color: rgb(74 4 78);
 }
 
 .clCreateAccountContainer input,
 .clCreateAccountContainer select {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0.1rem 0.1rem 0.4rem rgba(74, 4, 78, 0.377);
-    color: rgb (74 4 78);
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0.1rem 0.1rem 0.4rem rgba(74, 4, 78, 0.377);
+  color: rgb (74 4 78);
 }
 
 .clCreateAccountContainer input[type="submit"] {
-    margin-top: 20px;
-    background: rgb(74 4 78);
-    box-shadow: 0.1rem 0.1rem 0.4rem rgba(74, 4, 78, 0.377);
-    color: white;
-    cursor: pointer;
+  margin-top: 20px;
+  background: rgb(74 4 78);
+  box-shadow: 0.1rem 0.1rem 0.4rem rgba(74, 4, 78, 0.377);
+  color: white;
+  cursor: pointer;
 }
 
 .clCreateAccountContainer input[type="submit"]:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
-
-
 
 /* ----- Lista ALunos ----- */
 
-#idListaAluno{
-    background-color: rgb(226 232 240);
-    width: 90%;
-    max-width: 85rem;
+#idListaAluno {
+  background-color: rgb(226 232 240);
+  width: 90%;
+  max-width: 85rem;
 
-    margin: auto;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 2rem;
-    
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
 
-    border-radius: 1rem;
-    box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.192);
+  border-radius: 1rem;
+  box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.192);
 }
 
-#idAlunosNavBar{
-    display: grid;
-    /* ---- Melhor Layout para celular se ---- */
-    /* ---- A partir de 700px mudar par a 12fr 2fr ---- */
-    grid-template-columns: 12fr 1fr;
-    place-items:  center;
+#idAlunosNavBar {
+  display: grid;
+  /* ---- Melhor Layout para celular se ---- */
+  /* ---- A partir de 700px mudar par a 12fr 2fr ---- */
+  grid-template-columns: 12fr 1fr;
+  place-items: center;
 }
 
-#idAlunosFiltro{
-    display: grid;
-    place-items: center;
+#idAlunosFiltro {
+  display: grid;
+  place-items: center;
 }
 
-#idButtonBackground{
-    background-color: white;
-    border: none;
-    border-radius: 2rem;
-    height: 2.5rem;
-    width: 2.5rem;
-    box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.199);
+#idButtonBackground {
+  background-color: white;
+  border: none;
+  border-radius: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.199);
 }
 
-#idButtonBackground:hover{
-    cursor: pointer;
+#idButtonBackground:hover {
+  cursor: pointer;
 }
 
-#idAlunoFiltroImg{
-    width: 2.5rem;
-    margin-top: 0.15rem;
+#idAlunoFiltroImg {
+  width: 2.5rem;
+  margin-top: 0.15rem;
 }
-
