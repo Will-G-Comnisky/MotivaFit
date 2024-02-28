@@ -2,8 +2,8 @@
 
 /* ----- Pagina Principal ----- */
 
-#idMain {
-    background-color: white;
+body {
+    background-color: rgba(158, 158, 158, 0.192);
     height: 100%;
 }
 

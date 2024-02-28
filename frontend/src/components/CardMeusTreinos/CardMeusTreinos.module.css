@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* @charset "UTF-8";
 
 #idTreinoCard {
   background-color: white;
@@ -50,4 +50,96 @@
 #idImg {
   width: 2.5rem;
   margin-top: 0.2rem;
+} */
+
+#idTreinoCard {
+  background-color: white;
+  height: 3rem;
+  margin: auto;
+  margin-top: 1rem;
+  width: 95%;
+  border-radius: 0.5rem;
+  box-shadow: 0.2rem 0.1rem 1rem rgba(0, 0, 0, 0.199);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  display: grid;
+  grid-template-columns: 2fr 8fr 20fr 1fr;
+}
+
+#idTreinoCard:hover {
+  cursor: pointer;
+}
+
+#idAlunoImgBackground{
+  display: grid;
+  place-items: center;
+}
+
+#idTreinoImg {
+  width: 2.5rem;
+}
+
+#idTreinoNome {
+  margin: auto;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+#idGrupoTreino {
+  display: grid;
+  place-items: center left;
+
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+#idSetaIcon {
+  width: 2.1rem;
+  margin-right: 1rem;
+}
+
+
+div ul{
+  display: none;
+}
+
+div ul.clOpened{
+  display: grid;
+  margin: auto;
+  width: 92%;
+  background-color: white;
+  border-radius: 0 0 1rem 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  box-shadow: 0rem 0.6rem 1rem -1rem inset rgba(0, 0, 0, 0.507);
+  padding-top: 0.7rem;
+}
+
+div ul.clOpened li{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+}
+
+.clOpenedImg{
+  transform: rotate(180deg);
+}
+
+#idAtividadesList{
+  
+}
+
+.clAtividade{
+
+}
+
+li{
+  list-style-type: disc;
+  color: purple;
+  margin-left: 1rem;
+  margin-bottom: 0.1rem;
+}
+
+#idExercicio{
+  color: black;
 }

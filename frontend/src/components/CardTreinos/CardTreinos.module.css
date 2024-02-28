@@ -19,12 +19,13 @@
   cursor: pointer;
 }
 
+#idAlunoImgBackground{
+  display: grid;
+  place-items: center;
+}
+
 #idTreinoImg {
   width: 2.5rem;
-  border-radius: 2rem;
-  padding-top: 0.25rem;
-  padding-left: 1rem;
-  margin: auto;
 }
 
 #idTreinoNome {
@@ -41,8 +42,44 @@
   font-size: 1.1rem;
 }
 
-#idInfoIcon {
+#idSetaIcon {
   width: 2.1rem;
-  padding-top: 0.45rem;
   margin-right: 1rem;
+}
+
+
+div ul{
+  display: none;
+}
+
+div ul.clOpened{
+  display: grid;
+  margin: auto;
+  width: 92%;
+  background-color: white;
+  border-radius: 0 0 1rem 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  box-shadow: 0rem 0.6rem 1rem -1rem inset rgba(0, 0, 0, 0.507);
+  padding-top: 0.7rem;
+}
+
+div ul.clOpened li{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+}
+
+.clOpenedImg{
+  transform: rotate(180deg);
+}
+
+li{
+  list-style-type: disc;
+  color: purple;
+  margin-left: 1rem;
+  margin-bottom: 0.1rem;
+}
+
+#idExercicio{
+  color: black;
 }

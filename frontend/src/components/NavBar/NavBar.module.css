@@ -1,7 +1,7 @@
 #idNav{
     background-color: rgb(15 23 42);
     display: grid;
-    grid-template-columns: 1fr 2fr 12fr 1fr 2fr  0.5fr;
+    grid-template-columns: 1fr 3fr 12fr 3fr 3fr  0.5fr;
     place-items: center;
     
   }
@@ -9,8 +9,10 @@
   #idNavImgBackground{
     margin: auto;
   }
+
   #idNavImg{
     width: 6.2rem;
+    min-width: 6rem;
     transition: transform 0.3s ease;
   }
 
@@ -35,6 +37,7 @@
 
   .clNavBotaoBackground{
     margin: auto;
+
   }
   
   .clNavBotao{

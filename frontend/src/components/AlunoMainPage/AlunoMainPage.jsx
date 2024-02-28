@@ -5,7 +5,7 @@ import NavBar from "../NavBar/NavBar";
 import Banner from "../Banner/Banner";
 import CardTreinos from "../CardTreinos/CardTreinos";
 
-import { TreinosAluno } from "../../data/TreinosAluno";
+import TreinosList from "../../data/TreinosList";
 
 // -- Logo --
 import logo from "../../assets/logo.png";
@@ -19,6 +19,8 @@ var userName = "What?!";
 var msgBom;
 var userRanking = "Ouro";
 var numMetaConcluida = 1;
+
+const treinosArray = Object.values(TreinosList).flatMap(Object.values);
 
 // Função msg de Bom Dia / Boa Tarde / Boa Noite
 function msgHoraDoDia() {
@@ -37,14 +39,15 @@ function msgHoraDoDia() {
   }
 }
 
-const Treinos = ({ TreinosAluno }) => (
+const Treinos = () => (
   <>
-    {TreinosAluno.map((treino) => (
-      <div key={treino.id}>
+    {treinosArray.map((treino) => (
+      <div key={treino.workoutName}>
         <CardTreinos
           workoutName={treino.workoutName}
           workoutGroup={treino.workoutGroup}
           workoutImg={workoutImg}
+          exercicios={treino.exercicios}
         />
       </div>
     ))}
@@ -67,7 +70,7 @@ function AlunoMainPage() {
       />
 
       <div id={styles.idListaTreinos}>
-        <Treinos TreinosAluno={TreinosAluno} />
+        <Treinos TreinosList={TreinosList} />
       </div>
     </div>
   );

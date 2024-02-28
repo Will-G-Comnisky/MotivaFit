@@ -1,7 +1,22 @@
 import styles from "../CardTreinos/CardTreinos.module.css";
+import { useState } from 'react'
+
 import treinoImg from "../../assets/gym.png";
+import seta from '../../assets/setaTreinos.png'
 
 function CardTreinos(props) {
+
+  const [showList, setShowList] = useState(false)
+
+  const ExercicioList = ({ExercicioTreino}) => (
+    <>
+    {props.exercicios.map((exercicio, index) => (
+      <li key={index}><span id={styles.idExercicio}>{exercicio}</span></li>
+    ))}
+    </>
+  )
+
+
   return (
     <div>
       <div id={styles.idTreinoCard}>
@@ -19,8 +34,27 @@ function CardTreinos(props) {
         <div id={styles.idGrupoTreino}>
           <span>{props.workoutGroup}</span>
         </div>
+      
+        <button onClick={() =>{setShowList(!showList)}} 
+                id={styles.idAlunoImgBackground}
+        >
+          <img  id={styles.idSetaIcon} 
+                className={showList ? styles.clOpenedImg : styles.clClosedImg} 
+                src={seta} 
+                alt="" 
+          />
+        </button>
+      </div>
+
+      <div id={styles.idAtividadesList} >
+        <ul className={showList ? styles.clOpened : ''}>
+          <ExercicioList/>
+        </ul>
       </div>
     </div>
+
+    
+
   );
 }
 
