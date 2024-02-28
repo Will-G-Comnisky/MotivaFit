@@ -9,7 +9,6 @@ datasource db {
 
 model aluno {
   id_aluno   Int         @id @default(autoincrement())
-  data_nasc  String      @db.VarChar(20)
   altura     Int
   xp         Int
   nivel      Int
@@ -149,6 +148,7 @@ model usuario {
   email       String   @db.VarChar(100)
   nome        String   @db.VarChar(50)
   sexo        String  @db.VarChar(20)@default(" ")
+  data_nasc  String   @db.VarChar(20)@default(" ")
   id_endereco Int
   userimg     String?  @db.VarChar(255)
   admin       admin[]
