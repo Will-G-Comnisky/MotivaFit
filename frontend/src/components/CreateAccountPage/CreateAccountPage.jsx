@@ -80,10 +80,10 @@ function CreateAccountPage() {
           <option value="aluno">Aluno</option>
         </select>
         <input
-          type="number"
+          type="date"
           value={age}
           onChange={handleAgeChange}
-          placeholder="Idade"
+          placeholder="Data nascimento"
         />
         <input
           type="email"
