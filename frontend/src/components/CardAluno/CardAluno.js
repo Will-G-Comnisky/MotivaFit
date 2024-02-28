@@ -23,11 +23,11 @@ function CardAluno(props){
                 </div>
 
                 {/* ----- Aluno Info ----- */}
-                <div id={styles.idAlunoInfo}>
-                    <div id={styles.idInfoIconBackground}>
-                        <img src={infoImg} id={styles.idInfoIcon} alt="" />
-                    </div>
+                
+                <div id={styles.idInfoIconBackground}>
+                    <img src={infoImg} id={styles.idInfoIcon} alt="" />
                 </div>
+                
                 
 
             </div>

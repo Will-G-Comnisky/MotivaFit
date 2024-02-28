@@ -12,15 +12,13 @@ function BotaoLinks(props){
     return(
         <div id={styles.idBotaoLink}>
             {/* ----- Label/Nome do Botão ----- */}
-            <button onClick={Navegar} id={props.idText} className={styles.clBotaoName}>{props.nome}</button>
+            <a href={props.link} id={props.idText} className={styles.clBotaoName}>{props.nome}</a>
             {/* ----- Link -----  */}
             
-            <button onClick={Navegar}>
-                <div id={styles.idBotaoBackground}>
-                    {/* ----- Icone do Botão ----- */}
-                    <img src={props.icon} id={props.idImgName} className={styles.clBotaoImg}  alt="" />
-                </div>
-            </button>
+            <a href={props.link} id={styles.idBotaoBackground}>
+                {/* ----- Icone do Botão ----- */}
+                <img src={props.icon} id={props.idImgName} className={styles.clBotaoImg}  alt="" />
+            </a>
                
         </div>
     )

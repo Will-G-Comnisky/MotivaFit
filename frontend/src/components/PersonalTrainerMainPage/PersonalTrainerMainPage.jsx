@@ -3,7 +3,9 @@ import styles from "../PersonalTrainerMainPage/PersonalTrainerMainPage.module.cs
 import React, { useState } from "react";
 
 // ----- Components -----
+import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
 import BotaoLinks from "../BotaoLink/BotaoLink";
+import BotaoNav from "../BotaoNav/BotaoNav";
 import NavBar from "../NavBar/NavBar";
 import Banner from "../Banner/Banner";
 import CardAluno from "../CardAluno/CardAluno";
@@ -30,7 +32,6 @@ import lupa from "../../assets/lupa.png";
 import filtro from "../../assets/filtro.png";
 // -- Treinador --
 import Treinador from "../../assets/Pictures/Treinador.png";
-import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
 // -- Alunos --
 
 // ----- Variaveis Temporarias -----
@@ -95,14 +96,18 @@ function PersonalTrainerMainPage(props) {
       <div id={styles.idBotoesPaginaPrincipal}>
         {/* Botao Novo treino */}
 
-        <BotaoLinks
+        <BotaoNav
           nome="Meus Treinos"
           icon={meusTreinos}
           link="/MeusTreinosPage"
         />
 
         {/* Botao Meus treinos */}
-        <BotaoLinks nome="Ranking" icon={ranking} link="/RankingPage" />
+        <BotaoNav 
+          nome="Ranking" 
+          icon={ranking} 
+          link="/RankingPage" 
+        />
 
         {/* Botao Agendamentos */}
         <BotaoLinks
@@ -112,10 +117,10 @@ function PersonalTrainerMainPage(props) {
         />
 
         {/* Botao Financeiro */}
-        <BotaoLinks
+        <BotaoNav
           nome="Financeiro"
           icon={financeiro}
-          link="../../FinanceiroPage"
+          link="/FinanceiroPage"
         />
       </div>
 
