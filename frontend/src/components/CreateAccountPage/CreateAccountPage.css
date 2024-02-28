@@ -84,3 +84,17 @@
 .create-account-container input[type="submit"]:hover {
   background-color: #0056b3;
 }
+
+.back-button {
+  margin-top: 10px;
+  background: red;
+  box-shadow: 0.1rem 0.1rem 0.4rem rgba(255, 0, 0, 0.377);
+  color: white;
+  cursor: pointer;
+  border: none;
+  padding: 10px 20px;
+}
+
+.back-button:hover {
+  background-color: #cc0000;
+}

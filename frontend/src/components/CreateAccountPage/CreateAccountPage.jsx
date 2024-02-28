@@ -10,6 +10,8 @@ function CreateAccountPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [userID, setUserID] = useState("");
+  const [cpf, setCpf] = useState("");
 
   const navigate = useNavigate();
 
@@ -41,6 +43,14 @@ function CreateAccountPage() {
     setConfirmPassword(event.target.value);
   };
 
+  const handleUserIDChange = (event) => {
+    setUserID(event.target.value);
+  }
+
+  const handleCpfChange = (event) => {
+    setCpf(event.target.value);
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
@@ -58,10 +68,20 @@ function CreateAccountPage() {
     }
   };
 
+  const handleBack = () => {
+    navigate("/");
+  };
+
   return (
     <div className="create-account-container">
       <form onSubmit={handleSubmit}>
         <h2>Motiva Fit - Crie uma Conta</h2>
+        <input
+          type="text"
+          value={userID}
+          onChange={handleUserIDChange}
+          placeholder="ID Usuário"
+        />
         <input
           type="text"
           value={fullName}
@@ -86,6 +106,12 @@ function CreateAccountPage() {
           placeholder="Data nascimento"
         />
         <input
+          type="text"
+          value={cpf}
+          onChange={handleCpfChange}
+          placeholder="CPF"
+        />
+        <input
           type="email"
           value={email}
           onChange={handleEmailChange}
@@ -104,6 +130,7 @@ function CreateAccountPage() {
           placeholder="Confirme a Senha"
         />
         <input type="submit" value="Criar Conta" />
+        <button className="back-button" onClick={handleBack}>Voltar</button>
       </form>
     </div>
   );
