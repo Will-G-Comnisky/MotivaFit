@@ -3,6 +3,7 @@ interface User {
   user_id: string;
   tipo_user: string;
   senha: string;
+  sexo: string;
   cpf: string;
   email: string;
   nome: string;

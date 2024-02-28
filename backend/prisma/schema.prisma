@@ -148,6 +148,7 @@ model usuario {
   cpf         String   @db.VarChar(20)
   email       String   @db.VarChar(100)
   nome        String   @db.VarChar(50)
+  sexo        String  @db.VarChar(20)@default(" ")
   id_endereco Int
   userimg     String?  @db.VarChar(255)
   admin       admin[]
