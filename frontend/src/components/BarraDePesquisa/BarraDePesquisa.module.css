@@ -1,62 +1,88 @@
 @charset "UTF-8";
 
-#idAlunosBarraDePesquisa{
-    background-color: white;
-    height: 2rem;
-    width: 97%;
-    border-radius: 2rem;
-    
-    box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.253);
+#idAlunosBarraDePesquisa {
+  background-color: white;
+  height: 2rem;
+  width: 95%;
+  display: flex;
+  border-radius: 2rem;
+  height: auto;
+  box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.253);
 
-    
-
-    display: grid;
-    grid-template-columns: 1fr 11fr;
-    place-items: center left;   
+  display: grid;
+  grid-template-columns: 1fr 11fr;
+  place-items: center left;
 }
 
-#idAlunosPesquisar{
-    margin: auto;
+#idAlunosPesquisar {
+  margin: auto;
 }
 
-#idAlunosPesquisarButton{
-    background-color: white;
-    border: none;
-    border-radius: 2rem;
-    padding-top: 0.3rem;
+#idAlunosPesquisarButton {
+  background-color: white;
+  border: none;
+  border-radius: 2rem;
+  padding-top: 0.3rem;
 }
 
-#idAlunosPesquisarButton:hover{
-    cursor: pointer;
+#idAlunosPesquisarButton:hover {
+  cursor: pointer;
 }
 
-#idAlunosPesquisarImg{
-    width: 1.4rem;
-    margin: auto;
+#idAlunosPesquisarImg {
+  width: 1.4rem;
+  margin: auto;
 }
 
-#idAlunoPesquisarText{
-    width: 100%;
+#idAlunoPesquisarText {
+  width: 100%;
 }
 
 #idAlunoPesquisarInput {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.3rem;
-    border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  border: none;
 
-    width: 96%;
-    border-radius: 2rem;
-    padding-left: 1rem;
+  width: 96%;
+  border-radius: 2rem;
+  padding-left: 1rem;
 
-
-    color: gray;
-    background-color: rgba(211, 211, 211, 0.281);
+  color: gray;
+  background-color: rgba(211, 211, 211, 0.281);
 }
 
-#idAlunoPesquisarInput::placeholder{
-    color: rgba(128, 128, 128, 0.534);
+#idAlunoPesquisarInput::placeholder {
+  color: rgba(128, 128, 128, 0.534);
 }
 
 #idAlunoPesquisarInput:focus {
-    outline: none;
+  outline: none;
+}
+
+#idModal {
+  position: fixed; /* Fixar o modal no topo da página */
+  z-index: 1; /* Colocar o modal na frente de outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%; /* Largura total */
+  height: 100%; /* Altura total */
+  overflow: auto; /* Habilitar rolagem se necessário */
+  background-color: rgba(0, 0, 0, 0.4); /* Cor de fundo com opacidade */
+}
+
+/* Conteúdo do modal */
+#idModal div {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% do topo e centralizado */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  height: auto;
+}
+
+#idModal img {
+  width: 100px; /* Defina a largura que você deseja */
+  height: 100px; /* Defina a altura que você deseja */
+  border-radius: 50%; /* Isso faz a imagem aparecer em formato circular */
+  object-fit: cover; /* Isso garante que a imagem cubra toda a área, mesmo que isso signifique cortar parte da imagem */
 }
