@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import styles from "../FinanceiroPage/FinanceiroPage.module.css";
 import NavBar from "../NavBar/NavBar";
 import logo from "../../assets/logo.png";
@@ -7,12 +6,6 @@ import Resume from "../../components/Resume/index";
 import Form from "../../components/Form/index";
 
 const FinanceiroPage = () => {
-  const navigate = useNavigate();
-
-  const navigateToPage = () => {
-    navigate("/PersonalTrainerMainPage");
-  };
-
   const data = localStorage.getItem("transactions");
   const [transactionsList, setTransactionsList] = useState(
     data ? JSON.parse(data) : []
@@ -59,9 +52,6 @@ const FinanceiroPage = () => {
           transactionsList={transactionsList}
           setTransactionsList={setTransactionsList}
         />
-        <button onClick={navigateToPage} className={styles.Button}>
-          Voltar
-        </button>
       </div>
     </>
   );

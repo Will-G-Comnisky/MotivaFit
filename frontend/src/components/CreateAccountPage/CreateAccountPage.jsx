@@ -45,11 +45,11 @@ function CreateAccountPage() {
 
   const handleUserIDChange = (event) => {
     setUserID(event.target.value);
-  }
+  };
 
   const handleCpfChange = (event) => {
     setCpf(event.target.value);
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -80,7 +80,7 @@ function CreateAccountPage() {
           type="text"
           value={userID}
           onChange={handleUserIDChange}
-          placeholder="ID Usuário"
+          placeholder="Nome de Usuário"
         />
         <input
           type="text"
@@ -130,7 +130,9 @@ function CreateAccountPage() {
           placeholder="Confirme a Senha"
         />
         <input type="submit" value="Criar Conta" />
-        <button className="back-button" onClick={handleBack}>Voltar</button>
+        <button className="back-button" onClick={handleBack}>
+          Voltar
+        </button>
       </form>
     </div>
   );

@@ -5,11 +5,8 @@ function NavBar(props) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Aqui você pode adicionar a lógica de logout
-    // Primeiro, removemos a sessão do localStorage
     localStorage.removeItem("session");
 
-    // Depois de fazer logout, redirecionamos o usuário
     navigate("/");
   };
 
