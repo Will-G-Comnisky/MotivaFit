@@ -81,8 +81,8 @@
 }
 
 #idModal img {
-  width: 100px; /* Defina a largura que você deseja */
-  height: 100px; /* Defina a altura que você deseja */
-  border-radius: 50%; /* Isso faz a imagem aparecer em formato circular */
-  object-fit: cover; /* Isso garante que a imagem cubra toda a área, mesmo que isso signifique cortar parte da imagem */
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
 }
