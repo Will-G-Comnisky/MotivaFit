@@ -3,7 +3,7 @@ import styles from "../MeusTreinosPage/MeusTreinosPage.css";
 
 // ----- Components -----
 import NavBar from "../NavBar/NavBar";
-import CardTreinos from "../CardTreinos/CardTreinos";
+import CardMeusTreinos from "../CardMeusTreinos/CardMeusTreinos";
 import BotaoLinks from "../BotaoLink/BotaoLink";
 
 import TreinosList from "../../data/TreinosList"; // Importando TreinosList
@@ -32,7 +32,7 @@ const Treinos = () => {
     <>
       {treinosArray.map((treino) => (
         <div key={treino.workoutName}>
-          <CardTreinos
+          <CardMeusTreinos
             workoutName={treino.workoutName}
             workoutGroup={treino.workoutGroup}
             workoutImg={workoutImg}

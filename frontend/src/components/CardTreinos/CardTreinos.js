@@ -1,25 +1,7 @@
-import React, { useState } from "react";
 import styles from "../CardTreinos/CardTreinos.module.css";
 import treinoImg from "../../assets/gym.png";
-import info from "../../assets/infoImg.png";
-import Modal from "react-modal";
-import { customStyles } from "./cardTreinosModal"; // Importando customStyles
-
-// Certifique-se de vincular o aplicativo raiz
-// Isso é necessário para a acessibilidade do modal
-Modal.setAppElement("#root");
 
 function CardTreinos(props) {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  const handleInfoClick = () => {
-    setModalIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
-
   return (
     <div>
       <div id={styles.idTreinoCard}>
@@ -37,22 +19,6 @@ function CardTreinos(props) {
         <div id={styles.idGrupoTreino}>
           <span>{props.workoutGroup}</span>
         </div>
-
-        <div onClick={handleInfoClick}>
-          <img id={styles.idImg} src={info} alt="" />
-        </div>
-
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Treino Details"
-        >
-          {/* Renderize os exercícios aqui */}
-          {props.exercicios.map((exercicio, index) => (
-            <p key={index}>{exercicio}</p>
-          ))}
-        </Modal>
       </div>
     </div>
   );
