@@ -10,7 +10,7 @@ function NavBar(props){
         localStorage.removeItem("user");
 
         // Depois de fazer logout, redirecionamos o usuário
-        navigate("/LogOffPage");
+        navigate("/");
     }
 
     const handleHome = () => {
@@ -24,15 +24,15 @@ function NavBar(props){
 
             <div id={styles.idNavImgBackground}>
                 {/* ----- Imagem ----- */}
-                <img src={props.logo} id={styles.idNavImg} alt="" />
+                <img src={props.logo} id={styles.idNavImg} alt="" onClick={handleHome}/>
             </div>
-            <div id={styles.idLogoName}>
+            <div id={styles.idLogoName} onClick={handleHome}>
                 Motiva Fit
             </div>
 
             <div id={styles.idFiller}></div>
 
-            <div><button className={styles.clNavBotao} onClick={handleHome}>Inicio</button></div>
+            <div><button className={styles.clNavBotao} onClick={handleHome}>Início</button></div>
 
             <div className={styles.clNavBotaoBackground}>
                 <button className={styles.clNavBotao} onClick={handleLogout}>Logout</button>

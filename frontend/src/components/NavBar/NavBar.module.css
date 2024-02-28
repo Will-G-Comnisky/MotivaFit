@@ -10,15 +10,27 @@
     margin: auto;
   }
   #idNavImg{
-    width: 4.2rem;
+    width: 6.2rem;
+    transition: transform 0.3s ease;
+  }
+
+  #idNavImg:hover {
+    transform: scale(1.2);
+    cursor: pointer;
   }
   
   #idLogoName{
-    color: rgb(112 26 117);
+    color: white;
     margin: auto;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     font-weight: bold;
-    
+    transition: transform 0.3s ease;
+  }
+
+  #idLogoName:hover {
+    cursor: pointer;
+    color: rgb(33, 86, 156);
+    transform: scale(1.2);
   }
 
   .clNavBotaoBackground{
@@ -26,16 +38,17 @@
   }
   
   .clNavBotao{
-    background-color: rgb(15 23 42); ;
+    background-color: rgb(112 26 117);
     border: none;
+    border-radius: 1.4rem;
   
     margin: auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 0.6rem 1.6rem;
+    transition: transform 0.3s ease;
   
     font-family: Arial, Helvetica, sans-serif;
-    color: rgb(112 26 117);
-    font-size: 1rem;
+    color: white;
+    font-size: 1.6rem;
     font-weight: 600;
   }
 
@@ -43,4 +56,5 @@
   .clNavBotao:hover {
     cursor: pointer;
     color: rgb(33, 86, 156);
+    transform: scale(1.2);
   }
