@@ -18,18 +18,30 @@ function LoginAluno() {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user && user.email === email && user.password === password) {
-      if (user.type === "aluno") {
-        console.log(`Email: ${email}, Password: ${password}`);
-        navigate("/AlunoMainPage");
+
+    try {
+      const response = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        setError(data.error);
       } else {
-        setError("Esta página é apenas para alunos");
+        localStorage.setItem("session", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        navigate("/AlunoMainPage");
       }
-    } else {
-      setError("Email ou senha incorretos");
+    } catch (err) {
+      console.error(err);
+      setError("Ocorreu um erro ao tentar fazer login");
     }
   };
 

@@ -51,20 +51,28 @@ function CreateAccountPage() {
     setCpf(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
       alert("As senhas não correspondem!");
       return;
     }
-    const user = { fullName, type, gender, age, email, password };
-    localStorage.setItem("user", JSON.stringify(user));
+    const user = { fullName, type, gender, age, email, password, userID, cpf };
+    const response = await fetch("http://localhost:5000/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+    const data = await response.json();
+    localStorage.setItem("token", data.token);
     console.log(`Usuário criado: ${JSON.stringify(user)}`);
-    // Redireciona para a página de login correspondente
+    // Redireciona para a página principal correspondente
     if (type === "aluno") {
-      navigate("/LoginAluno");
+      navigate("/AlunoMainPage");
     } else if (type === "professor") {
-      navigate("/LoginProfessor");
+      navigate("/PersonalTrainerMainPage");
     }
   };
 

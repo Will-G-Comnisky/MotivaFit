@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import styles from "./NavBar.module.css";
 
 function NavBar(props) {
@@ -10,9 +11,14 @@ function NavBar(props) {
     navigate("/");
   };
 
-  const handleHome = () => {
-    // Obtenha o usuário do localStorage
-    const user = JSON.parse(localStorage.getItem("user"));
+  const handleHome = async () => {
+    // Obtenha o usuário do banco de dados
+    const response = await axios.get("http://localhost:5000/currentUser", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("session")}`,
+      },
+    });
+    const user = response.data;
 
     // Verifique o tipo de usuário e navegue para a página inicial correspondente
     if (user && user.type === "aluno") {
@@ -20,7 +26,7 @@ function NavBar(props) {
     } else if (user && user.type === "professor") {
       navigate("/PersonalTrainerMainPage");
     } else {
-      // Se não houver usuário no localStorage ou o tipo de usuário for desconhecido, navegue para a página inicial padrão
+      // Se não houver usuário logado ou o tipo de usuário for desconhecido, navegue para a página inicial padrão
       navigate("/");
     }
   };
