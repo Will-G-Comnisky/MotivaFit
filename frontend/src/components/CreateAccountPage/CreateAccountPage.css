@@ -73,19 +73,20 @@
   color: rgb (74 4 78);
 }
 
-.create-account-container input[type="submit"] {
+.create-account-container .create-account-button {
   margin-top: 20px;
+  padding: 10px 0px;
   background: rgb(74 4 78);
   box-shadow: 0.1rem 0.1rem 0.4rem rgba(74, 4, 78, 0.377);
   color: white;
   cursor: pointer;
 }
 
-.create-account-container input[type="submit"]:hover {
+.create-account-container .create-account-button:hover {
   background-color: #0056b3;
 }
 
-.back-button {
+.create-account-container .back-button {
   margin-top: 10px;
   background: red;
   box-shadow: 0.1rem 0.1rem 0.4rem rgba(255, 0, 0, 0.377);
@@ -95,6 +96,6 @@
   padding: 10px 20px;
 }
 
-.back-button:hover {
+.create-account-container .back-button:hover {
   background-color: #cc0000;
 }

@@ -26,6 +26,10 @@ function CreateAccountPage() {
     });
   };
 
+  const handleBack = () => {
+    navigate("/");
+  };
+
   return (
     <div className="create-account-container">
       <form onSubmit={submitHandler}>
@@ -62,7 +66,10 @@ function CreateAccountPage() {
           <option value="aluno">Aluno</option>
           <option value="professor">Professor</option>
         </select>
-        <button type="submit">Registrar</button>
+        <button className="create-account-button" type="submit">Registrar</button>
+        <button type="button" className="back-button" onClick={handleBack}>
+          Voltar
+        </button>
       </form>
     </div>
   );

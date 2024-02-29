@@ -9,8 +9,8 @@ app.use(bodyParser.json());
 
 const pool = new Pool({
   host: "localhost",
-  user: "motiva",
-  password: "motiva",
+  user: "postgres",
+  password: "willpostgres",
   database: "motiva_fit",
   port: 5432,
 });
