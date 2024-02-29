@@ -149,12 +149,12 @@ model usuario {
   nome        String   @db.VarChar(50)
   sexo        String  @db.VarChar(20)@default(" ")
   data_nasc  String   @db.VarChar(20)@default(" ")
-  id_endereco Int
+  id_endereco Int?
   userimg     String?  @db.VarChar(255)
   admin       admin[]
   aluno       aluno[]
   rotina      rotina[]
-  endereco    endereco @relation(fields: [id_endereco], references: [id_endereco], onDelete: NoAction, onUpdate: NoAction)
+  endereco    endereco? @relation(fields: [id_endereco], references: [id_endereco], onDelete: NoAction, onUpdate: NoAction)
 
   @@unique([cpf, email, user_id], map: "type")
 }

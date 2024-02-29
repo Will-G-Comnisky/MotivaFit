@@ -9,7 +9,6 @@ class AlunoRepository {
       data,
       select: {
         id_aluno: true, 
-        data_nasc: true,
         altura: true,
         xp: true,
         nivel: true,         
