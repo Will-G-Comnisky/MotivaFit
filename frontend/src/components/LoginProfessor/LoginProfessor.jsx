@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginProfessor.css";
@@ -9,7 +10,6 @@ function LoginProfessor() {
   const [showTerms, setShowTerms] = useState(false);
 
   const navigate = useNavigate();
-
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -18,30 +18,23 @@ function LoginProfessor() {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
-    try {
-      const response = await fetch("http://localhost:5000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
+    axios
+      .post("http://localhost:5000/login", { email, password })
+      .then((response) => {
+        console.log(response);
+        if (response.data.tipo_conta === "professor") {
+          navigate("/PersonalTrainerMainPage");
+        } else {
+          setError("Apenas professores podem fazer login por aqui");
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        setError("Ocorreu um erro ao tentar fazer login");
       });
-
-      const data = await response.json();
-
-      if (data.error) {
-        setError(data.error);
-      } else {
-        localStorage.setItem("token", data.token);
-        navigate("/PersonalTrainerMainPage");
-      }
-    } catch (err) {
-      console.error(err);
-      setError("Ocorreu um erro ao tentar fazer login");
-    }
   };
 
   const handleTermsClick = (event) => {

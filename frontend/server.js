@@ -1,104 +1,56 @@
-require("dotenv").config();
 const express = require("express");
-const { Pool } = require("pg");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const cors = require("cors");
 const app = express();
-
+const bodyParser = require("body-parser");
+const { Pool } = require("pg");
+const cors = require("cors");
 app.use(cors());
-app.use(express.json());
+
+app.use(bodyParser.json());
 
 const pool = new Pool({
-  user: "motiva",
   host: "localhost",
-  database: "motiva_fit",
+  user: "motiva",
   password: "motiva",
+  database: "motiva_fit",
   port: 5432,
 });
 
-app.post("/register", async (req, res) => {
-  const { fullName, type, gender, birthdate, email, password, userID, cpf } =
-    req.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  try {
-    const newUser = await pool.query(
-      "INSERT INTO users (fullName, type, gender, birthdate, email, password, userID, cpf) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
-      [fullName, type, gender, birthdate, email, hashedPassword, userID, cpf]
-    );
-
-    const token = jwt.sign(
-      { userID: newUser.rows[0].userID },
-      process.env.JWT_SECRET
-    );
-    res.json({ token });
-  } catch (err) {
-    console.error(err.message);
-  }
+app.post("/register", (req, res) => {
+  let data = [
+    req.body.nome_usuario,
+    req.body.nome_completo,
+    req.body.sexo,
+    req.body.email,
+    req.body.senha,
+    req.body.tipo_conta,
+  ];
+  let sql =
+    "INSERT INTO usuarios (nome_usuario, nome_completo, sexo, email, senha, tipo_conta) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id";
+  pool.query(sql, data, (err, result) => {
+    if (err) throw err;
+    res.send("Usuário adicionado com ID: " + result.rows[0].id);
+  });
 });
 
-app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-
-  try {
-    const user = await pool.query("SELECT * FROM users WHERE email = $1", [
-      email,
-    ]);
-    if (user.rows.length > 0) {
-      const validPassword = await bcrypt.compare(
-        password,
-        user.rows[0].password
-      );
-      if (validPassword) {
-        const token = jwt.sign(
-          { userID: user.rows[0].userID },
-          process.env.JWT_SECRET
-        );
-        res.json({ token, user: user.rows[0] });
+app.post("/login", (req, res) => {
+  let { email, password } = req.body;
+  let sql = "SELECT * FROM usuarios WHERE email = $1";
+  pool.query(sql, [email], (err, result) => {
+    if (err) throw err;
+    if (result.rows.length > 0) {
+      let user = result.rows[0];
+      if (user.senha === password) {
+        // em um aplicativo real, a senha deve ser criptografada
+        res.json(user);
       } else {
-        res.json({ error: "Invalid Password" });
+        res.status(401).send("Senha incorreta");
       }
     } else {
-      res.json({ error: "User not found" });
+      res.status(404).send("Usuário não encontrado");
     }
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
-app.get("/currentUser", async (req, res) => {
-  // Verifique se o token JWT foi enviado no cabeçalho da requisição
-  const token = req.headers["authorization"];
-  if (!token) {
-    return res.status(401).json({ error: "No token provided" });
-  }
-
-  // Verifique o token e obtenha o ID do usuário
-  let userID;
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    userID = decoded.userID;
-  } catch (err) {
-    return res.status(401).json({ error: "Invalid token" });
-  }
-
-  // Busque o usuário no banco de dados
-  try {
-    const user = await pool.query("SELECT * FROM users WHERE userID = $1", [
-      userID,
-    ]);
-    if (user.rows.length > 0) {
-      res.json(user.rows[0]);
-    } else {
-      res.status(404).json({ error: "User not found" });
-    }
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ error: "Server error" });
-  }
+  });
 });
 
 app.listen(5000, () => {
-  console.log("Server has started on port 5000");
+  console.log("Servidor iniciado na porta 5000...");
 });
