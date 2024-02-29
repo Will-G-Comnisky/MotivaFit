@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import styles from "./NavBar.module.css";
 
 function NavBar(props) {
@@ -7,26 +6,22 @@ function NavBar(props) {
 
   const handleLogout = () => {
     localStorage.removeItem("session");
+    localStorage.removeItem("tipo_conta"); // remove o tipo de conta do localStorage
 
     navigate("/");
   };
 
-  const handleHome = async () => {
-    // Obtenha o usuário do banco de dados
-    const response = await axios.get("http://localhost:5000/currentUser", {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("session")}`,
-      },
-    });
-    const user = response.data;
+  const handleHome = () => {
+    // Obtenha o tipo de conta do localStorage
+    const tipo_conta = localStorage.getItem("tipo_conta");
 
-    // Verifique o tipo de usuário e navegue para a página inicial correspondente
-    if (user && user.type === "aluno") {
+    // Verifique o tipo de conta e navegue para a página inicial correspondente
+    if (tipo_conta === "aluno") {
       navigate("/AlunoMainPage");
-    } else if (user && user.type === "professor") {
+    } else if (tipo_conta === "professor") {
       navigate("/PersonalTrainerMainPage");
     } else {
-      // Se não houver usuário logado ou o tipo de usuário for desconhecido, navegue para a página inicial padrão
+      // Se não houver usuário logado ou o tipo de conta for desconhecido, navegue para a página inicial padrão
       navigate("/");
     }
   };

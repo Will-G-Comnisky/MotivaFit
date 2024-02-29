@@ -26,6 +26,7 @@ function LoginProfessor() {
       .then((response) => {
         console.log(response);
         if (response.data.tipo_conta === "professor") {
+          localStorage.setItem("tipo_conta", "professor");
           navigate("/PersonalTrainerMainPage");
         } else {
           setError("Apenas professores podem fazer login por aqui");

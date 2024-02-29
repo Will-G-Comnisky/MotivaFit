@@ -26,6 +26,7 @@ function LoginAluno() {
       .then((response) => {
         console.log(response);
         if (response.data.tipo_conta === "aluno") {
+          localStorage.setItem("tipo_conta", "aluno");
           navigate("/AlunoMainPage");
         } else {
           setError("Apenas alunos podem fazer login por aqui");
