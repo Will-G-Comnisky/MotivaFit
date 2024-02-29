@@ -7,6 +7,6 @@ export const userValidation = yup.object({
   cpf: yup.string().required(),         
   email: yup.string().required().email(),      
   nome: yup.string().required(),  
-  id_endereco: yup.string().required(),
-  userimg: yup.string().nullable(),
+  id_endereco: yup.string(),
+  userimg: yup.string(),
 })
