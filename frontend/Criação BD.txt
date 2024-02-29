@@ -1,0 +1,13 @@
+Banco de Dados: motiva_fit
+senha: motiva_fit
+
+
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    nome_usuario VARCHAR(50),
+    nome_completo VARCHAR(100),
+    sexo CHAR(1),
+    email VARCHAR(100),
+    senha VARCHAR(100),
+    tipo_conta VARCHAR(50) CHECK (tipo_conta IN ('aluno', 'professor'))
+);
