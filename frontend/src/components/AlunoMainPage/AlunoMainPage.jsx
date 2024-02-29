@@ -1,12 +1,11 @@
 import styles from "../AlunoMainPage/AlunoMainPage.module.css";
 
 // ----- Components -----
-import NavBar from "../NavBar/NavBar";
 import Banner from "../Banner/Banner";
+import BotaoLink from "../BotaoLink/BotaoLink";
+import BotaoNav from "../BotaoNav/BotaoNav";
 import CardTreinos from "../CardTreinos/CardTreinos";
-import BotaoLink from "../BotaoLink/BotaoLink"
-import BotaoNav from "../BotaoNav/BotaoNav"
-
+import NavBar from "../NavBar/NavBar";
 
 // ----- Data -----
 import TreinosList from "../../data/TreinosList";
@@ -15,13 +14,13 @@ import TreinosList from "../../data/TreinosList";
 import logo from "../../assets/logo.png";
 
 // -- Banner --
-import workoutImg from "../../assets/gym.png";
 import alunoImg from "../../assets/Aluno.png";
+import workoutImg from "../../assets/gym.png";
 
 // -- Botao --
-import ranking from "../../assets/rankingEDesafios.png";
 import agendamentos from "../../assets/agendamento.png";
 import financeiro from "../../assets/financeiro.png";
+import ranking from "../../assets/rankingEDesafios.png";
 
 // --- User Info Resumo ---
 var userName = "What?!";
@@ -78,25 +77,17 @@ function AlunoMainPage() {
         userRanking={userRanking}
       />
 
-
       <div className={styles.clDivBotoes}>
         <BotaoLink
           nome="Agendamentos"
           icon={agendamentos}
           link="https://workspace.google.com/intl/pt-BR/products/calendar/"
+          target="_blank"
         />
 
-        <BotaoNav 
-          nome="Financeiro"
-          icon={financeiro}
-          link="/FinanceiroPage"
-        />
-        
-        <BotaoNav 
-          nome="Ranking"
-          icon={ranking}
-          link="/RankingPage"
-        />
+        <BotaoNav nome="Financeiro" icon={financeiro} link="/FinanceiroPage" />
+
+        <BotaoNav nome="Ranking" icon={ranking} link="/RankingPage" />
       </div>
 
       <div id={styles.idListaTreinos}>

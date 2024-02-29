@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import styles from "../MeusTreinosPage/MeusTreinosPage.css";
 
 // ----- Components -----
-import NavBar from "../NavBar/NavBar";
 import CardMeusTreinos from "../CardMeusTreinos/CardMeusTreinos";
-import BotaoLinks from "../BotaoLink/BotaoLink";
+import NavBar from "../NavBar/NavBar";
 
 import TreinosList from "../../data/TreinosList"; // Importando TreinosList
 
 // -- Logo --
 import logo from "../../assets/logo.png";
-import novo from "../../assets/novo.png";
 
 // -- Banner --
 import workoutImg from "../../assets/Aluno.png";
@@ -51,20 +49,8 @@ function MeusTreinosPage(props) {
       {/* ----- Nav Bar ----- */}
       <NavBar logo={logo} />
 
-      {/* Botao Cadastrar Novo Treino */}
-
-      <BotaoLinks nome="NovoTreino" icon={novo} link="#" idText="idText" />
-      <div id={styles.idListaTreinos}>
-        <div id={styles.idTreinosNavBar}>
-          {/* ----- Ordenar ----- */}
-          <div id={styles.idTreinosFiltro}>
-            <div id={styles.idButtonBackground}></div>
-          </div>
-        </div>
-
-        {/* Passando TreinosList importado para o componente Treinos */}
-        <Treinos />
-      </div>
+      {/* Passando TreinosList importado para o componente Treinos */}
+      <Treinos />
     </div>
   );
 }
